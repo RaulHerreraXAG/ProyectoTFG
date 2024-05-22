@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maxfitvistaempleados.controller.CrearRutina">
+   <top>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="TOP_CENTER" prefHeight="232.0" prefWidth="920.0">
+               <children>
+                  <ImageView fitHeight="89.0" fitWidth="167.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../images/Logo-Maxfit-Vélez-Málaga%20(1).png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="145.0" right="180.0" top="20.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Button fx:id="ButtonSesion" mnemonicParsing="false" onAction="#CerrarSesion" prefHeight="25.0" prefWidth="132.0" text="Cerrar Sesión">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="225.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets left="360.0" top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <ToolBar maxWidth="1213.0" prefHeight="35.0" prefWidth="1213.0">
+              <items>
+                <Button fx:id="buittonCliente" mnemonicParsing="false" onAction="#Clientes" prefHeight="25.0" prefWidth="237.0" text="Clientes" />
+                  <Button fx:id="buttonIngresos" mnemonicParsing="false" onAction="#Ingresos" prefHeight="25.0" prefWidth="237.0" text="Ingresos" />
+                  <Button fx:id="btnPagos" mnemonicParsing="false" onAction="#Pagos" prefHeight="25.0" prefWidth="237.0" text="Pagos" />
+                  <Button fx:id="btnDietas" mnemonicParsing="false" onAction="#Dietas" prefHeight="25.0" prefWidth="237.0" text="Dietas" />
+                  <Button fx:id="btnRutina" mnemonicParsing="false" onAction="#Rutina" prefHeight="25.0" prefWidth="237.0" text="Rutinas" />
+              </items>
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+            </ToolBar>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="ButtonFR" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#FR" prefHeight="25.0" prefWidth="140.0" text="Finalizar Rutina">
+               <HBox.margin>
+                  <Insets right="60.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="ButtonSD" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#SiguienteDia" prefHeight="25.0" prefWidth="140.0" text="Siguente Día" />
+            <Button fx:id="ButtonAtras" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#VolverAtras" prefHeight="25.0" prefWidth="140.0" text="Volver Atrás">
+               <HBox.margin>
+                  <Insets left="60.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lblDIa" alignment="CENTER" text="Label">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <GridPane minHeight="350.0" prefHeight="400.0" prefWidth="1220.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="185.0" minHeight="10.0" prefHeight="129.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="188.0" minHeight="10.0" prefHeight="121.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="188.0" minHeight="10.0" prefHeight="121.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="188.0" minHeight="10.0" prefHeight="122.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <VBox GridPane.rowIndex="3">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="cbEjercicio4" prefHeight="25.0" prefWidth="159.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtRepe4" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series">
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtSeries4" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox>
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="cbEjercicio1" prefHeight="25.0" prefWidth="159.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtRepe" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series">
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtSeries1" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox GridPane.rowIndex="1">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="cbEjercicio2" prefHeight="25.0" prefWidth="159.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtRepe2" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series">
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtSeries2" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox GridPane.rowIndex="2">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="cbEjercicio3" prefHeight="25.0" prefWidth="159.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtRepe3" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series">
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtSeries3" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox GridPane.columnIndex="1">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="cbEjercicio5" prefHeight="25.0" prefWidth="159.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtRepe5" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series">
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtSeries5" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="cbEjercicio6" prefHeight="25.0" prefWidth="159.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtRepe6" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series">
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtSeries6" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="cbEjercicio7" prefHeight="25.0" prefWidth="159.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtRepe7" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series">
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtSeries7" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="cbEjercicio8" prefHeight="25.0" prefWidth="159.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtRepe8" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series">
+                                 <font>
+                                    <Font name="Bell MT" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtSeries8" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </GridPane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
