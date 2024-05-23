@@ -97,7 +97,7 @@ public class CrearRutina implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         ejerciciosObservableList = FXCollections.observableArrayList();
         EjerciciosDAO ejerciciosDAO = new EjerciciosDAO();
-        ejerciciosObservableList.setAll(ejerciciosDAO.getAllNames());
+        ejerciciosObservableList.setAll(ejerciciosDAO.getAll());
         cbEjercicio1.setItems(ejerciciosObservableList);
         cbEjercicio2.setItems(ejerciciosObservableList);
         cbEjercicio3.setItems(ejerciciosObservableList);
@@ -136,33 +136,79 @@ public class CrearRutina implements Initializable {
     }
 
     @javafx.fxml.FXML
-    public void FR(ActionEvent actionEvent) {
+    public void FR(ActionEvent actionEvent) throws IOException {
+        RutinaDAO rutinaDAO = new RutinaDAO();
+        Clientes cliente = Sesion.getCliente();
+
+        // Obtener el ejercicio seleccionado en el ComboBox
+        Ejercicios ejercicioSeleccionado = cbEjercicio1.getValue();
+
+// Verificar si se seleccionó un ejercicio
+        if (ejercicioSeleccionado == null) {
+            // Manejo del caso cuando no se ha seleccionado ningún ejercicio
+            System.out.println("Seleccione un ejercicio.");
+            return;
+        }
+
+// Obtener el ID del ejercicio seleccionado
+        Integer idEjercicio = ejercicioSeleccionado.getId();
+
+
+
+
+        // Crear una nueva instancia de Rutina y establecer sus atributos
+        Rutina nuevaRutina = new Rutina();
+        nuevaRutina.setClientes(cliente);
+        nuevaRutina.setDia(lblDIa.getText());
+        nuevaRutina.setRepeticiones(Integer.valueOf(txtRepe.getText()));
+        nuevaRutina.setSeries(Integer.valueOf(txtSeries1.getText()));
+        nuevaRutina.setEjercicios(ejercicioSeleccionado); // Establecer el ejercicio en la rutina
+
+        // Guardar la nueva rutina en la base de datos
+        rutinaDAO.save(nuevaRutina);
+        Sesion.setRutina(nuevaRutina);
+
+        // Cambiar a la siguiente escena
+        Main.changeScene("RutinaXcliente-view.fxml", "Rutina");
     }
 
     @javafx.fxml.FXML
     public void SiguienteDia(ActionEvent actionEvent) throws IOException {
         RutinaDAO rutinaDAO = new RutinaDAO();
-        Ejercicios ejercicios = new Ejercicios();
-        Long idNuevo = RutinaDAO.countClientes() + 1;
-        Clientes clientes = Sesion.getCliente();
+        Clientes cliente = Sesion.getCliente();
 
-        Rutina newrutina = new Rutina();
-        Ejercicios ejercicios1 = new Ejercicios();
+        // Obtener el ejercicio seleccionado en el ComboBox
+        Ejercicios ejercicioSeleccionado = cbEjercicio1.getValue();
 
-        newrutina.setId(Math.toIntExact(idNuevo));
-        ejercicios1.setNombre(String.valueOf(cbEjercicio1.getValue()));
-        newrutina.setRepeticiones(Integer.valueOf(txtRepe.getText()));
-        newrutina.setSeries(Integer.valueOf(txtSeries1.getText()));
-        newrutina.setClientes(clientes);
-        newrutina.setDia(lblDIa.getText());
-        rutinaDAO.save(newrutina);
-        Sesion.setRutina(newrutina);
-
-        if (newrutina != null){
-            Main.changeScene("RutinaXcliente-view.fxml","Rutina");
+// Verificar si se seleccionó un ejercicio
+        if (ejercicioSeleccionado == null) {
+            // Manejo del caso cuando no se ha seleccionado ningún ejercicio
+            System.out.println("Seleccione un ejercicio.");
+            return;
         }
 
+// Obtener el ID del ejercicio seleccionado
+        Integer idEjercicio = ejercicioSeleccionado.getId();
+
+
+
+
+        // Crear una nueva instancia de Rutina y establecer sus atributos
+        Rutina nuevaRutina = new Rutina();
+        nuevaRutina.setClientes(cliente);
+        nuevaRutina.setDia(lblDIa.getText());
+        nuevaRutina.setRepeticiones(Integer.valueOf(txtRepe.getText()));
+        nuevaRutina.setSeries(Integer.valueOf(txtSeries1.getText()));
+        nuevaRutina.setEjercicios(ejercicioSeleccionado); // Establecer el ejercicio en la rutina
+
+        // Guardar la nueva rutina en la base de datos
+        rutinaDAO.save(nuevaRutina);
+        Sesion.setRutina(nuevaRutina);
+
+        // Cambiar a la siguiente escena
+        Main.changeScene("RutinaXcliente-view.fxml", "Rutina");
     }
+
 
     @javafx.fxml.FXML
     public void VolverAtras(ActionEvent actionEvent) {

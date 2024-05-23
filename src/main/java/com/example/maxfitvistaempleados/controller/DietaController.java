@@ -77,15 +77,15 @@ public class DietaController implements Initializable {
             return new SimpleStringProperty(CCDia);
         });
         this.CCarbo.setCellValueFactory((fila) -> {
-            String carbo = String.valueOf(fila.getValue().getCarbohidratos());
+            String carbo = String.valueOf(fila.getValue().getReceta().getCarbohidratosTotal());
             return new SimpleStringProperty(carbo);
         });
         this.CCGrasas.setCellValueFactory((fila) -> {
-            String grasas = String.valueOf(fila.getValue().getGrasas());
+            String grasas = String.valueOf(fila.getValue().getReceta().getGrasasTotal());
             return new SimpleStringProperty(grasas);
         });
         this.CCKcal.setCellValueFactory((fila) ->{
-            String kcal = String.valueOf(fila.getValue().getKcal());
+            String kcal = String.valueOf(fila.getValue().getReceta().getKcalTotal());
             return new SimpleStringProperty(kcal);
         });
         this.CCNReceta.setCellValueFactory((fila) -> {

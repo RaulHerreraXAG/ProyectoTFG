@@ -2,8 +2,6 @@ package com.example.maxfitvistaempleados.clientes;
 
 import com.example.maxfitvistaempleados.domain.DAO;
 import com.example.maxfitvistaempleados.domain.HibernateUtil;
-import com.example.maxfitvistaempleados.domain.DAO;
-import com.example.maxfitvistaempleados.domain.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;

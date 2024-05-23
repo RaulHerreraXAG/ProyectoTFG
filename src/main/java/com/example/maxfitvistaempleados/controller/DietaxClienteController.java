@@ -74,15 +74,15 @@ public class DietaxClienteController implements Initializable {
             return new SimpleStringProperty(CCDia);
         });
         this.CCarbo.setCellValueFactory((fila) -> {
-            String carbo = String.valueOf(fila.getValue().getCarbohidratos());
+            String carbo = String.valueOf(fila.getValue().getReceta().getCarbohidratosTotal());
             return new SimpleStringProperty(carbo);
         });
         this.CCGrasas.setCellValueFactory((fila) -> {
-            String grasas = String.valueOf(fila.getValue().getGrasas());
+            String grasas = String.valueOf(fila.getValue().getReceta().getGrasasTotal());
             return new SimpleStringProperty(grasas);
         });
         this.CCKcal.setCellValueFactory((fila) ->{
-            String kcal = String.valueOf(fila.getValue().getKcal());
+            String kcal = String.valueOf(fila.getValue().getReceta().getKcalTotal());
             return new SimpleStringProperty(kcal);
         });
         this.CCNReceta.setCellValueFactory((fila) -> {
@@ -163,6 +163,7 @@ public class DietaxClienteController implements Initializable {
     }
 
     @javafx.fxml.FXML
-    public void AnadirDietaPredeterminada(ActionEvent actionEvent) {
+    public void AnadirDietaPredeterminada(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("anadirDietaPre-view.fxml","Añadir dieta predeterminada");
     }
 }

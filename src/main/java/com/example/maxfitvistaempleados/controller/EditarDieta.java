@@ -48,16 +48,16 @@ public class EditarDieta implements Initializable {
     private TextArea txtPasos;
 
     private DietasDAO dietasDAO = new DietasDAO();
-    @javafx.fxml.FXML
-    private TableView<RecetasAlimentos> tvAlimentos;
-    @javafx.fxml.FXML
-    private TableColumn<RecetasAlimentos , String> CCAlimentos;
-    @javafx.fxml.FXML
-    private TableColumn<RecetasAlimentos , String> CCCantidad;
 
-    private ObservableList<RecetasAlimentos> observableList;
+    private ObservableList<Recetas> observableList;
 
-    private RecetasDAOAlimentos recetasDAOAlimentos = new RecetasDAOAlimentos();
+    private RecetaDAO recetaDAO = new RecetaDAO();
+    @javafx.fxml.FXML
+    private TextArea txtAlimentos;
+    @javafx.fxml.FXML
+    private TextField txtGrasas;
+    @javafx.fxml.FXML
+    private TextField txtCH;
 
 
     @Override
@@ -68,30 +68,22 @@ public class EditarDieta implements Initializable {
 
 
         txtNombre.setText(Sesion.getDietas().getReceta().getNombre());
-        txtKcal.setText(String.valueOf(Sesion.getDietas().getKcal()));
+        txtKcal.setText(String.valueOf(Sesion.getDietas().getReceta().getKcalTotal()));
         txtPasos.setText(Sesion.getDietas().getReceta().getPasos());
         txtTiempo.setText(String.valueOf(Sesion.getDietas().getReceta().getTiempoPreparacion()));
         cbDia.setValue(Sesion.getDietas().getDia());
+        txtCH.setText(String.valueOf(Sesion.getDietas().getReceta().getCarbohidratosTotal()));
+        txtGrasas.setText(String.valueOf(Sesion.getDietas().getReceta().getGrasasTotal()));
+        // Formatear la lista de alimentos
+        String alimentos = Sesion.getDietas().getReceta().getAlimentos();
+        String[] alimentosArray = alimentos.split(";");
+        StringBuilder alimentosFormateados = new StringBuilder();
+        for (int i = 0; i < alimentosArray.length; i++) {
+            alimentosFormateados.append("Alimento ").append(i + 1).append(" : ").append(alimentosArray[i].trim()).append("\n");
+        }
+        txtAlimentos.setText(alimentosFormateados.toString());
 
         observableList = FXCollections.observableArrayList();
-
-        Recetas recetas = Sesion.getRecetas();
-        List<RecetasAlimentos> recetasList = recetasDAOAlimentos.getByReceta(recetas);
-        observableList.addAll(recetasList);
-
-        this.CCAlimentos.setCellValueFactory((fila)->{
-            String CCAlimentos = String.valueOf(fila.getValue().getAlimento().getNombre());
-            return new SimpleStringProperty(CCAlimentos);
-        });
-        this.CCCantidad.setCellValueFactory((fila)->{
-            String CCAlimentos = String.valueOf(fila.getValue().getCantidad());
-            return new SimpleStringProperty(CCAlimentos);
-        });
-
-
-
-
-        tvAlimentos.setItems(observableList);
 
     }
 
@@ -145,11 +137,7 @@ public class EditarDieta implements Initializable {
 
         dietas.setId_dieta(Sesion.getDietas().getId_dieta());
         dietas.setClientes(clientes);  // Asignar el cliente guardado a la dieta
-        dietas.setKcal(Sesion.getDietas().getKcal());
-        dietas.setCarbohidratos(Sesion.getDietas().getCarbohidratos());
         dietas.setDia(cbDia.getValue());
-        dietas.setGrasas(Sesion.getDietas().getGrasas());
-        dietas.setCarbohidratos(Sesion.getDietas().getCarbohidratos());
         dietas.setReceta(recetas);
 
         System.out.println(recetas.getIdReceta());
@@ -158,9 +146,10 @@ public class EditarDieta implements Initializable {
         recetas.setPasos(txtPasos.getText());
         recetas.setTiempoPreparacion(Integer.valueOf(txtTiempo.getText()));
         recetas.setNombre(txtNombre.getText());
-        recetas.setKcalTotal(Sesion.getDietas().getReceta().getKcalTotal());
-        recetas.setCarbohidratosTotal(Sesion.getDietas().getReceta().getCarbohidratosTotal());
-        recetas.setGrasasTotal(Sesion.getDietas().getReceta().getGrasasTotal());
+        recetas.setKcalTotal(Double.valueOf(txtKcal.getText()));
+        recetas.setCarbohidratosTotal(Double.valueOf(txtCH.getText()));
+        recetas.setGrasasTotal(Double.valueOf(txtGrasas.getText()));
+        recetas.setAlimentos(txtAlimentos.getText());
 
         dietasDAO1.update(dietas);
         recetaDAO.update(recetas);

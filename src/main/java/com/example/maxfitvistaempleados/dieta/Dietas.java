@@ -18,15 +18,6 @@ public class Dietas implements Serializable {
     @Column(name = "dia")
     private String dia;
 
-    @Column(name = "kcal")
-    private Double kcal;
-
-    @Column(name = "carbohidratos")
-    private Double carbohidratos;
-
-    @Column(name = "grasas")
-    private Double grasas;
-
     @ManyToOne
     @JoinColumn(name = "id_cliente", referencedColumnName = "matricula")
     private Clientes clientes;

@@ -23,10 +23,10 @@
         <mapping class="com.example.maxfitvistaempleados.pago.Pagos"/>
         <mapping class="com.example.maxfitvistaempleados.rutina.Rutina"/>
         <mapping class="com.example.maxfitvistaempleados.rutina.Ejercicios"/>
-        <mapping class="com.example.maxfitvistaempleados.dieta.Alimentos"/>
         <mapping class="com.example.maxfitvistaempleados.dieta.Dietas"/>
         <mapping class="com.example.maxfitvistaempleados.dieta.Recetas"/>
-        <mapping class="com.example.maxfitvistaempleados.dieta.RecetasAlimentos"/>
+        <mapping class="com.example.maxfitvistaempleados.dieta.Dieta_Pre_Anadir"/>
+        <mapping class="com.example.maxfitvistaempleados.dieta.Dieta_Predeterminada"/>
 
     </session-factory>
 

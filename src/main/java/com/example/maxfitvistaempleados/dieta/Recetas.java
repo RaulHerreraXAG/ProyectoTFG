@@ -33,7 +33,6 @@ public class Recetas implements Serializable {
     @Column(name = "Pasos")
     private String pasos;
 
-    @OneToMany(mappedBy = "receta", cascade = CascadeType.ALL)
-    private Set<RecetasAlimentos> recetasAlimentos;
-
+    @Column(name = "alimentos")
+    private String alimentos;
 }
