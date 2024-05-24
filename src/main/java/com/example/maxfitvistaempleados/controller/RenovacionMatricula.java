@@ -11,14 +11,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class CrearCliente implements Initializable {
+public class RenovacionMatricula implements Initializable {
     @javafx.fxml.FXML
     private Button ButtonSesion;
     @javafx.fxml.FXML
@@ -32,29 +34,29 @@ public class CrearCliente implements Initializable {
     @javafx.fxml.FXML
     private Button btnRutina;
     @javafx.fxml.FXML
-    private ComboBox<String> cbGenero;
+    private ComboBox<String> cbTipoRenovacion;
     @javafx.fxml.FXML
-    private TextField txtApelldos;
-    @javafx.fxml.FXML
-    private TextField txtPeso;
-    @javafx.fxml.FXML
-    private TextField txtNombre;
-    @javafx.fxml.FXML
-    private TextField txtAltura;
-    @javafx.fxml.FXML
-    private TextArea txtObservacion;
-    @javafx.fxml.FXML
-    private TextField txtEdad;
-    @javafx.fxml.FXML
-    private Button ButtonCrear;
+    private Button ButtonRenovar;
     @javafx.fxml.FXML
     private Button ButtonAtras;
+
+    private ClienteDAOImp clienteDAOImp = new ClienteDAOImp();
     @javafx.fxml.FXML
-    private ComboBox cbFinFecha;
-    @javafx.fxml.FXML
-    private TextField txtCorreo;
+    private Label lblTXT;
     @javafx.fxml.FXML
     private ComboBox<String> cbTipoPago;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        ObservableList<String> renovacion = FXCollections.observableArrayList();
+        renovacion.addAll("1 mes","2 meses","3 meses","6 meses","1 año");
+        cbTipoRenovacion.setItems(renovacion);
+
+        ObservableList<String> pago = FXCollections.observableArrayList();
+        pago.addAll("Tarjeta","Efectivo");
+        cbTipoPago.setItems(pago);
+        lblTXT.setText("Renovación de matrícula de: "+ Sesion.getCliente().getNombre() + " "+ Sesion.getCliente().getApellidos());
+    }
 
 
     @javafx.fxml.FXML
@@ -78,72 +80,39 @@ public class CrearCliente implements Initializable {
     }
 
     @javafx.fxml.FXML
-    public void CCliente(ActionEvent actionEvent) throws IOException {
-        ClienteDAOImp clienteDAOImp = new ClienteDAOImp();
-        Long idNuevo = ClienteDAOImp.countClientes() + 1;
-        String contrasenyapredeterminada = "Maxfit2024";
-        Clientes cliente = new Clientes();
+    public void Renovar(ActionEvent actionEvent) throws IOException {
+        Clientes cliente = Sesion.getCliente();
 
-        cliente.setMatricula(idNuevo);
-        cliente.setNombre(txtNombre.getText());
-        cliente.setApellidos(txtApelldos.getText());
-        cliente.setCorreo(txtCorreo.getText());
-        cliente.setAltura(Double.valueOf(txtAltura.getText()));
-        cliente.setEdad(Integer.parseInt(txtEdad.getText()));
-        cliente.setContrasena(contrasenyapredeterminada);
-        cliente.setGenero(cbGenero.getValue());
-        cliente.setPeso(Double.valueOf(txtPeso.getText()));
-        cliente.setObservacion(txtObservacion.getText());
-        cliente.setFechaInicio(LocalDate.now());
+        cliente.setMatricula(Sesion.getCliente().getMatricula());
+        cliente.setNombre(Sesion.getCliente().getNombre());
+        cliente.setApellidos(Sesion.getCliente().getApellidos());
+        cliente.setCorreo(Sesion.getCliente().getCorreo());
+        cliente.setAltura(Sesion.getCliente().getAltura());
+        cliente.setEdad(Sesion.getCliente().getEdad());
+        cliente.setContrasena(Sesion.getCliente().getContrasena());
+        cliente.setGenero(Sesion.getCliente().getGenero());
+        cliente.setPeso(Sesion.getCliente().getPeso());
+        cliente.setObservacion(Sesion.getCliente().getObservacion());
+        cliente.setFechaInicio(Sesion.getCliente().getFechaInicio());
         // Obtener la duración seleccionada por el usuario
-        String duracionSeleccionada = cbFinFecha.getValue().toString();
+        String duracionSeleccionada = cbTipoRenovacion.getValue();
         LocalDate fechaFin = calcularFechaFin(duracionSeleccionada);
         cliente.setFechaFin(fechaFin);
 
-        clienteDAOImp.save(cliente);
+        clienteDAOImp.update(cliente);
         Sesion.setCliente(cliente);
 
 
-
-
-
-        if (cliente != null){
+        if(cliente != null) {
             Main.changeScene("view-empleado.fxml","Cliente");
         }
-
-        //Alerta que indica que el pedido fue creado con éxito.
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("¡Éxito!");
-        alert.setHeaderText("El cliente ha sido creado");
-        alert.setContentText("Nombre del Cliente: " + Sesion.getCliente().getNombre() + " realizado por " +  Sesion.getEmpleado().getNombre() + " "+ Sesion.getEmpleado().getApellidos());
-        alert.showAndWait();
-
     }
 
     @javafx.fxml.FXML
-    public void VolverAtras(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("view-empleado.fxml","Cliente");
-    }
-    public void Clientes(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("view-empleado.fxml","Clientes");
+    public void VolverAtras(ActionEvent actionEvent) {
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        ObservableList<String> meses = FXCollections.observableArrayList();
-        meses.addAll("1 mes","2 meses","3 meses","6 meses","1 año");
-        cbFinFecha.setItems(meses);
 
-        ObservableList<String> genero = FXCollections.observableArrayList();
-        genero.addAll("Hombre", "Mujer");
-        cbGenero.setItems(genero);
-
-        ObservableList<String> pago = FXCollections.observableArrayList();
-        pago.addAll("Tarjeta","Efectivo");
-        cbTipoPago.setItems(pago);
-    }
-
-    // Método para calcular la fecha de finalización basada en la duración seleccionada
     private LocalDate calcularFechaFin(String duracionSeleccionada) {
         LocalDate fechaInicio = LocalDate.now();
         LocalDate fechaFin = null;
@@ -158,8 +127,8 @@ public class CrearCliente implements Initializable {
                     Sesion.setIngresos(ingresos);
 
                     ingresos.setId(idNuevo);
-                    ingresos.setNombre("Creación de matricula");
-                    ingresos.setDescripcion("Se ha realizado una creación de matricula para la persona " + Sesion.getCliente().getNombre() + " " + Sesion.getCliente().getApellidos());
+                    ingresos.setNombre("Renovacion de matricula");
+                    ingresos.setDescripcion("Se ha realizado una renovación de matricula para la persona " + Sesion.getCliente().getNombre() + " " + Sesion.getCliente().getApellidos());
                     ingresos.setTipopago(cbTipoPago.getValue());
                     ingresos.setGrupo("Gym");
                     ingresos.setDinero(33.00);
@@ -177,8 +146,8 @@ public class CrearCliente implements Initializable {
                     Sesion.setIngresos(ingresos2);
 
                     ingresos2.setId(idNuevo2);
-                    ingresos2.setNombre("Creación de matricula");
-                    ingresos2.setDescripcion("Se ha realizado una creación de matricula para la persona " + txtNombre.getText() + " " + txtApelldos.getText());
+                    ingresos2.setNombre("Renovacion de matricula");
+                    ingresos2.setDescripcion("Se ha realizado una renovación de matricula para la persona " + Sesion.getCliente().getNombre() + " " + Sesion.getCliente().getApellidos());
                     ingresos2.setTipopago(cbTipoPago.getValue());
                     ingresos2.setGrupo("Gym");
                     ingresos2.setDinero(60.00);
@@ -195,8 +164,8 @@ public class CrearCliente implements Initializable {
                     Sesion.setIngresos(ingresos3);
 
                     ingresos3.setId(idNuevo3);
-                    ingresos3.setNombre("Creación de matricula");
-                    ingresos3.setDescripcion("Se ha realizado una creación de matricula para la persona " + txtNombre.getText() + " " + txtApelldos.getText());
+                    ingresos3.setNombre("Renovacion de matricula");
+                    ingresos3.setDescripcion("Se ha realizado una renovación de matricula para la persona " + Sesion.getCliente().getNombre() + " " + Sesion.getCliente().getApellidos());
                     ingresos3.setTipopago(cbTipoPago.getValue());
                     ingresos3.setGrupo("Gym");
                     ingresos3.setDinero(85.00);
@@ -213,8 +182,8 @@ public class CrearCliente implements Initializable {
                     Sesion.setIngresos(ingresos4);
 
                     ingresos4.setId(idNuevo4);
-                    ingresos4.setNombre("Creación de matricula");
-                    ingresos4.setDescripcion("Se ha realizado una creación de matricula para la persona " + txtNombre.getText() + " " + txtApelldos.getText());
+                    ingresos4.setNombre("Renovacion de matricula");
+                    ingresos4.setDescripcion("Se ha realizado una renovación de matricula para la persona " + Sesion.getCliente().getNombre() + " " + Sesion.getCliente().getApellidos());
                     ingresos4.setTipopago(cbTipoPago.getValue());
                     ingresos4.setGrupo("Gym");
                     ingresos4.setDinero(160.00);
@@ -231,8 +200,8 @@ public class CrearCliente implements Initializable {
                     Sesion.setIngresos(ingresos5);
 
                     ingresos5.setId(idNuevo5);
-                    ingresos5.setNombre("Creación de matricula");
-                    ingresos5.setDescripcion("Se ha realizado una creación de matricula para la persona " + txtNombre.getText() + " " + txtApelldos.getText());
+                    ingresos5.setNombre("Renovacion de matricula");
+                    ingresos5.setDescripcion("Se ha realizado una renovación de matricula para la persona " + Sesion.getCliente().getNombre() + " " + Sesion.getCliente().getApellidos());
                     ingresos5.setTipopago(cbTipoPago.getValue());
                     ingresos5.setGrupo("Gym");
                     ingresos5.setDinero(300.00);

@@ -192,7 +192,7 @@ public class EmpleadosClientes implements Initializable {
     }
     @javafx.fxml.FXML
     public void RMatricula(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("RM-view.fxml","Renovar Matricula");
+        Main.changeScene("RenuevaMatricula-view.fxml","Renovar Matricula");
     }
 
     @javafx.fxml.FXML
