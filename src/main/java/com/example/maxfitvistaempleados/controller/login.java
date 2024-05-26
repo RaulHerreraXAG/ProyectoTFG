@@ -71,7 +71,7 @@ public class login implements Serializable {
                 info.setText("Usuario " + email + "(" + password + ") correcto");
                 info.setStyle("-fx-background-color:green; -fx-text-fill: white;");
                 try {
-                    Main.changeScene("view-empleado.fxml", "MaxFit Admin");
+                    Main.changeScene("view-admin.fxml", "MaxFit Admin");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

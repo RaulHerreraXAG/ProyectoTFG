@@ -5,7 +5,6 @@ import com.example.maxfitvistaempleados.Sesion;
 import com.example.maxfitvistaempleados.clientes.Clientes;
 import com.example.maxfitvistaempleados.dieta.Dietas;
 import com.example.maxfitvistaempleados.dieta.DietasDAO;
-import com.example.maxfitvistaempleados.rutina.Rutina;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,9 +15,21 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseButton;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -54,8 +65,6 @@ public class DietaxClienteController implements Initializable {
     @javafx.fxml.FXML
     private Button btnCD;
     @javafx.fxml.FXML
-    private Button btnAlimetos;
-    @javafx.fxml.FXML
     private Button btnDP;
     @javafx.fxml.FXML
     private TableView<Dietas> tvDieta;
@@ -63,6 +72,8 @@ public class DietaxClienteController implements Initializable {
     private ObservableList<Dietas> observableList;
 
     private DietasDAO dietasDAO = new DietasDAO();
+    @javafx.fxml.FXML
+    private Button btnDescargar;
 
 
     @Override
@@ -131,39 +142,70 @@ public class DietaxClienteController implements Initializable {
     }
 
     @javafx.fxml.FXML
-    public void CerrarSesion(ActionEvent actionEvent) {
+    public void CerrarSesion(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("login-view.fxml","Inicio Sesión");
     }
 
     @javafx.fxml.FXML
-    public void Cliente(ActionEvent actionEvent) {
+    public void Ingresos(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("ingreso-view.fxml","Ingresos");
     }
 
     @javafx.fxml.FXML
-    public void Ingresos(ActionEvent actionEvent) {
+    public void Pago(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("pago-view.fxml","Pagos");
+
     }
 
     @javafx.fxml.FXML
-    public void Pago(ActionEvent actionEvent) {
+    public void Dietas(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("dieta-view.fxml","Dietas");
+
     }
 
     @javafx.fxml.FXML
-    public void Dietas(ActionEvent actionEvent) {
-    }
+    public void Rutina(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("Rutina-view.fxml","Rutina");
 
-    @javafx.fxml.FXML
-    public void Rutina(ActionEvent actionEvent) {
+    }
+    public void Cliente(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("view-empleado.fxml","Clientes");
     }
 
     @javafx.fxml.FXML
     public void CrearDieta(ActionEvent actionEvent) {
     }
 
-    @javafx.fxml.FXML
-    public void Alimentos(ActionEvent actionEvent) {
-    }
 
     @javafx.fxml.FXML
     public void AnadirDietaPredeterminada(ActionEvent actionEvent) throws IOException {
         Main.changeScene("anadirDietaPre-view.fxml","Añadir dieta predeterminada");
     }
+
+
+    @javafx.fxml.FXML
+    public void DescargarDieta(ActionEvent actionEvent) throws SQLException, JRException {
+    /*
+    METODO PARA PDF / JASPERSOFT
+    */
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/maxfitdb", "root", "");
+        HashMap<String, Object> hashMap = new HashMap<>();
+
+        // Asegúrate de pasar el parámetro correcto al informe
+        hashMap.put("matriculaCliente", Sesion.getCliente().getMatricula());
+
+        JasperPrint jasperPrint = JasperFillManager.fillReport("DietaPDF.jasper", hashMap, connection);
+
+        // Mostrar el informe en una ventana
+        JasperViewer.viewReport(jasperPrint, false);
+
+        JRPdfExporter exp = new JRPdfExporter();
+        exp.setExporterInput(new SimpleExporterInput(jasperPrint));
+        exp.setExporterOutput(new SimpleOutputStreamExporterOutput("Dieta.pdf"));
+        exp.setConfiguration(new SimplePdfExporterConfiguration());
+        exp.exportReport();
+    }
+
+
+
 }

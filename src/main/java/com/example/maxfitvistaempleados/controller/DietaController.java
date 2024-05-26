@@ -139,27 +139,34 @@ public class DietaController implements Initializable {
     }
 
     @javafx.fxml.FXML
-    public void CerrarSesion(ActionEvent actionEvent) {
+    public void CerrarSesion(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("login-view.fxml","Inicio Sesión");
     }
 
     @javafx.fxml.FXML
-    public void Cliente(ActionEvent actionEvent) {
+    public void Ingresos(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("ingreso-view.fxml","Ingresos");
     }
 
     @javafx.fxml.FXML
-    public void Ingresos(ActionEvent actionEvent) {
+    public void Pago(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("pago-view.fxml","Pagos");
+
     }
 
     @javafx.fxml.FXML
-    public void Pago(ActionEvent actionEvent) {
+    public void Dietas(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("dieta-view.fxml","Dietas");
+
     }
 
     @javafx.fxml.FXML
-    public void Dietas(ActionEvent actionEvent) {
-    }
+    public void Rutina(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("Rutina-view.fxml","Rutina");
 
-    @javafx.fxml.FXML
-    public void Rutina(ActionEvent actionEvent) {
+    }
+    public void Cliente(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("view-empleado.fxml","Clientes");
     }
 
     @javafx.fxml.FXML

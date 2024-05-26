@@ -42,9 +42,9 @@
             </HBox>
             <ToolBar maxWidth="1213.0" prefHeight="35.0" prefWidth="1213.0">
               <items>
-                <Button fx:id="buittonCliente" mnemonicParsing="false" onAction="#Clientes" prefHeight="25.0" prefWidth="237.0" text="Clientes" />
+                <Button fx:id="buittonCliente" mnemonicParsing="false" onAction="#Cliente" prefHeight="25.0" prefWidth="237.0" text="Clientes" />
                   <Button fx:id="buttonIngresos" mnemonicParsing="false" onAction="#Ingresos" prefHeight="25.0" prefWidth="237.0" text="Ingresos" />
-                  <Button fx:id="btnPagos" mnemonicParsing="false" onAction="#Pagos" prefHeight="25.0" prefWidth="237.0" text="Pagos" />
+                  <Button fx:id="btnPagos" mnemonicParsing="false" onAction="#Pago" prefHeight="25.0" prefWidth="237.0" text="Pagos" />
                   <Button fx:id="btnDietas" mnemonicParsing="false" onAction="#Dietas" prefHeight="25.0" prefWidth="237.0" text="Dietas" />
                   <Button fx:id="btnRutina" mnemonicParsing="false" onAction="#Rutina" prefHeight="25.0" prefWidth="237.0" text="Rutinas" />
               </items>

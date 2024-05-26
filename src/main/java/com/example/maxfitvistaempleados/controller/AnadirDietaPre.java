@@ -1,5 +1,6 @@
 package com.example.maxfitvistaempleados.controller;
 
+import com.example.maxfitvistaempleados.Main;
 import com.example.maxfitvistaempleados.Sesion;
 import com.example.maxfitvistaempleados.clientes.Clientes;
 import com.example.maxfitvistaempleados.dieta.Dieta_Pre_AnadirDAO;
@@ -12,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -48,24 +50,34 @@ public class AnadirDietaPre implements Initializable {
 
 
     @javafx.fxml.FXML
-    public void CerrarSesion(ActionEvent actionEvent) {
+    public void CerrarSesion(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("login-view.fxml","Inicio Sesión");
+    }
+
+    @javafx.fxml.FXML
+    public void Ingresos(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("ingreso-view.fxml","Ingresos");
+    }
+
+    @javafx.fxml.FXML
+    public void Pagos(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("pago-view.fxml","Pagos");
 
     }
 
     @javafx.fxml.FXML
-    public void Ingresos(ActionEvent actionEvent) {
+    public void Dietas(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("dieta-view.fxml","Dietas");
+
     }
 
     @javafx.fxml.FXML
-    public void Pagos(ActionEvent actionEvent) {
-    }
+    public void Rutina(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("Rutina-view.fxml","Rutina");
 
-    @javafx.fxml.FXML
-    public void Dietas(ActionEvent actionEvent) {
     }
-
-    @javafx.fxml.FXML
-    public void Rutina(ActionEvent actionEvent) {
+    public void Cliente(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("view-empleado.fxml","Clientes");
     }
 
     @javafx.fxml.FXML

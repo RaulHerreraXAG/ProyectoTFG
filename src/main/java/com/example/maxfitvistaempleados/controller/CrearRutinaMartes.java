@@ -111,29 +111,36 @@ public class CrearRutinaMartes implements Initializable {
 
         }
 
-        @javafx.fxml.FXML
-        public void CerrarSesion(ActionEvent actionEvent) {
-        }
+    @javafx.fxml.FXML
+    public void CerrarSesion(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("login-view.fxml","Inicio Sesión");
+    }
 
-        @javafx.fxml.FXML
-        public void Clientes(ActionEvent actionEvent) {
-        }
+    @javafx.fxml.FXML
+    public void Ingresos(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("ingreso-view.fxml","Ingresos");
+    }
 
-        @javafx.fxml.FXML
-        public void Ingresos(ActionEvent actionEvent) {
-        }
+    @javafx.fxml.FXML
+    public void Pagos(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("pago-view.fxml","Pagos");
 
-        @javafx.fxml.FXML
-        public void Pagos(ActionEvent actionEvent) {
-        }
+    }
 
-        @javafx.fxml.FXML
-        public void Dietas(ActionEvent actionEvent) {
-        }
+    @javafx.fxml.FXML
+    public void Dietas(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("dieta-view.fxml","Dietas");
 
-        @javafx.fxml.FXML
-        public void Rutina(ActionEvent actionEvent) {
-        }
+    }
+
+    @javafx.fxml.FXML
+    public void Rutina(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("Rutina-view.fxml","Rutina");
+
+    }
+    public void Clientes(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("view-empleado.fxml","Clientes");
+    }
 
         @javafx.fxml.FXML
         public void FR(ActionEvent actionEvent) throws IOException {
@@ -205,14 +212,17 @@ public class CrearRutinaMartes implements Initializable {
             rutinaDAO.save(nuevaRutina);
             Sesion.setRutina(nuevaRutina);
 
-            // Cambiar a la siguiente escena
-            Main.changeScene("RutinaXcliente-view.fxml", "Rutina");
+            if(nuevaRutina != null){
+                // Cambiar a la siguiente escena
+                Main.changeScene("CR3-view.fxml", "Rutina Miércoles");
+            }
         }
 
 
         @javafx.fxml.FXML
         public void VolverAtras(ActionEvent actionEvent) {
         }
+
 
 
 }

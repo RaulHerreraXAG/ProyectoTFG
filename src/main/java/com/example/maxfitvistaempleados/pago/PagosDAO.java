@@ -121,4 +121,15 @@ public class PagosDAO implements DAO<Pagos> {
             return query.uniqueResult();
         }
     }
+
+    public Double obtenerTotalDinero() {
+        Double totalDinero = 0.0;
+        try (Session s = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Double> q = s.createQuery("select sum(p.dinero) from Pagos p", Double.class);
+            totalDinero = q.uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return totalDinero;
+    }
 }

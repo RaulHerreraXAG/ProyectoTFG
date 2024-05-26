@@ -112,27 +112,34 @@ public class CrearRutinaJueves implements Initializable {
     }
 
     @javafx.fxml.FXML
-    public void CerrarSesion(ActionEvent actionEvent) {
+    public void CerrarSesion(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("login-view.fxml","Inicio Sesión");
     }
 
     @javafx.fxml.FXML
-    public void Clientes(ActionEvent actionEvent) {
+    public void Ingresos(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("ingreso-view.fxml","Ingresos");
     }
 
     @javafx.fxml.FXML
-    public void Ingresos(ActionEvent actionEvent) {
+    public void Pago(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("pago-view.fxml","Pagos");
+
     }
 
     @javafx.fxml.FXML
-    public void Pagos(ActionEvent actionEvent) {
+    public void Dietas(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("dieta-view.fxml","Dietas");
+
     }
 
     @javafx.fxml.FXML
-    public void Dietas(ActionEvent actionEvent) {
-    }
+    public void Rutina(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("Rutina-view.fxml","Rutina");
 
-    @javafx.fxml.FXML
-    public void Rutina(ActionEvent actionEvent) {
+    }
+    public void Cliente(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("view-empleado.fxml","Clientes");
     }
 
     @javafx.fxml.FXML
@@ -205,8 +212,10 @@ public class CrearRutinaJueves implements Initializable {
         rutinaDAO.save(nuevaRutina);
         Sesion.setRutina(nuevaRutina);
 
-        // Cambiar a la siguiente escena
-        Main.changeScene("RutinaXcliente-view.fxml", "Rutina");
+        if(nuevaRutina != null){
+            // Cambiar a la siguiente escena
+            Main.changeScene("CR2-view.fxml", "Rutina Viernes");
+        }
     }
 
 

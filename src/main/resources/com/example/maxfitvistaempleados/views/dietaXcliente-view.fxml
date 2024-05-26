@@ -86,7 +86,7 @@
       <HBox alignment="CENTER" prefHeight="62.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btnCD" mnemonicParsing="false" onAction="#CrearDieta" prefHeight="25.0" prefWidth="161.0" text="Crear Dieta Personalizada" />
-            <Button fx:id="btnAlimetos" mnemonicParsing="false" onAction="#Alimentos" prefHeight="25.0" prefWidth="136.0" text="Alimentos">
+            <Button fx:id="btnDescargar" mnemonicParsing="false" onAction="#DescargarDieta" prefHeight="25.0" prefWidth="136.0" text="Descargar DIeta">
                <HBox.margin>
                   <Insets left="60.0" right="60.0" />
                </HBox.margin>

@@ -131,6 +131,12 @@ public class EmpleadoDAO implements DAO<Empleado> {
 
         return listaEmpleados;
     }
+    public static Long countClientes() {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Long> query = session.createQuery("select count(c) from Clientes c", Long.class);
+            return query.uniqueResult();
+        }
+    }
 }
 
 

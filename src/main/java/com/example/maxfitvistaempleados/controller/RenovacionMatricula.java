@@ -60,23 +60,28 @@ public class RenovacionMatricula implements Initializable {
 
 
     @javafx.fxml.FXML
-    public void CerrarSesion(ActionEvent actionEvent) {
+    public void CerrarSesion(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("Login-view.fxml","Inicio Sesión");
     }
 
     @javafx.fxml.FXML
-    public void Ingresos(ActionEvent actionEvent) {
+    public void Ingresos(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("Ingreso-view.fxml","Ingresos");
     }
 
     @javafx.fxml.FXML
-    public void Pagos(ActionEvent actionEvent) {
+    public void Pagos(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("pago-view.fxml","Pagos");
     }
 
     @javafx.fxml.FXML
-    public void Dietas(ActionEvent actionEvent) {
+    public void Dietas(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("dieta-view.fxml","Dietas");
     }
 
     @javafx.fxml.FXML
-    public void Rutina(ActionEvent actionEvent) {
+    public void Rutina(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("Rutina-view.fxml","Rutina");
     }
 
     @javafx.fxml.FXML
@@ -109,7 +114,8 @@ public class RenovacionMatricula implements Initializable {
     }
 
     @javafx.fxml.FXML
-    public void VolverAtras(ActionEvent actionEvent) {
+    public void VolverAtras(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("view-empleado.fxml","Cliente");
     }
 
 

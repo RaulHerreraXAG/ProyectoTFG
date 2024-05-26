@@ -4,8 +4,6 @@ import com.example.maxfitvistaempleados.Main;
 import com.example.maxfitvistaempleados.Sesion;
 import com.example.maxfitvistaempleados.ingreso.Ingresos;
 import com.example.maxfitvistaempleados.ingreso.IngresosDAO;
-import com.example.maxfitvistaempleados.pago.Pagos;
-import com.example.maxfitvistaempleados.pago.PagosDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,19 +14,17 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class EditarIngresos implements Initializable {
+public class EditarIngresosAdmin implements Initializable {
     @javafx.fxml.FXML
     private Button ButtonSesion;
     @javafx.fxml.FXML
-    private Button buittonCliente;
+    private Button buittonEmpleado;
     @javafx.fxml.FXML
     private Button buttonIngresos;
     @javafx.fxml.FXML
     private Button btnPagos;
     @javafx.fxml.FXML
-    private Button btnDietas;
-    @javafx.fxml.FXML
-    private Button btnRutina;
+    private Button ButtonIng;
     @javafx.fxml.FXML
     private Button ButtonBorrar;
     @javafx.fxml.FXML
@@ -43,8 +39,6 @@ public class EditarIngresos implements Initializable {
     private TextField txtNombre;
     @javafx.fxml.FXML
     private TextArea TADesc;
-    @javafx.fxml.FXML
-    private Button ButtonIng;
 
     private IngresosDAO ingresosDAO = new IngresosDAO();
 
@@ -55,54 +49,18 @@ public class EditarIngresos implements Initializable {
     }
 
     @javafx.fxml.FXML
+    public void Emp(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("view-admin.fxml","Empleados");
+    }
+
+    @javafx.fxml.FXML
     public void Ingresos(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("ingreso-view.fxml","Ingresos");
+        Main.changeScene("ingresoAdmin-view.fxml","Ingresos");
     }
 
     @javafx.fxml.FXML
     public void Pagos(ActionEvent actionEvent) throws IOException {
-        if(Sesion.getEmpleado() != null) {
-            Main.changeScene("pago-view.fxml", "Pagos");
-        }
-    }
-
-    @javafx.fxml.FXML
-    public void Dietas(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("dieta-view.fxml","Dietas");
-
-    }
-
-    @javafx.fxml.FXML
-    public void Rutina(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("Rutina-view.fxml","Rutina");
-
-    }
-
-
-    @javafx.fxml.FXML
-    public void VolverAtras(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("ingreso-view.fxml","Ingresos");
-    }
-    public void Clientes(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("view-empleado.fxml","Clientes");
-    }
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        ObservableList<String> pago = FXCollections.observableArrayList();
-        pago.addAll("Gym", "Zumba", "Yoga", "Pilates", "Boxeo");
-        cbPago.setItems(pago);
-
-        ObservableList<String> grupo = FXCollections.observableArrayList();
-        grupo.addAll("Efectivo", "Tarjeta");
-        cbGrupo.setItems(grupo);
-
-
-        txtNombre.setText(Sesion.getIngresos().getNombre());
-        txtDinero.setText(String.valueOf(Sesion.getIngresos().getDinero()));
-        TADesc.setText(Sesion.getIngresos().getDescripcion());
-        cbPago.setValue(Sesion.getIngresos().getTipopago());
-        cbGrupo.setValue(Sesion.getIngresos().getGrupo());
-
+        Main.changeScene("PagosAdmin-view.fxml","Pagos");
     }
 
     @javafx.fxml.FXML
@@ -115,7 +73,7 @@ public class EditarIngresos implements Initializable {
         ingresos.setNombre(txtNombre.getText());
         ingresos.setDinero(Double.valueOf(txtDinero.getText()));
         ingresos.setGrupo(cbGrupo.getValue());
-        ingresos.setEmpleado(Sesion.getEmpleado().getNombre());
+        ingresos.setEmpleado(Sesion.getIngresos().getEmpleado());
         ingresos.setFecha(Sesion.getIngresos().getFecha());
         ingresos.setTipopago(cbPago.getValue());
         ingresos.setDescripcion(TADesc.getText());
@@ -123,7 +81,7 @@ public class EditarIngresos implements Initializable {
         ingresosDAO1.update(ingresos);
 
         if(Sesion.getEmpleado() != null) {
-            Main.changeScene("ingresos-view.fxml", "Ingresos");
+            Main.changeScene("ingresosAdmin-view.fxml", "Ingresos");
         }
 
         //Alerta que indica que el pedido fue creado con éxito.
@@ -145,9 +103,31 @@ public class EditarIngresos implements Initializable {
         if (result.getButtonData() == ButtonBar.ButtonData.OK_DONE){
             ingresosDAO.delete(ingresosSeleccionado);
             if(Sesion.getEmpleado() != null) {
-                Main.changeScene("ingresos-view.fxml", "Ingresos");
                 Main.changeScene("ingresoAdmin-view.fxml", "Ingresos");
             }
         }
+    }
+
+    @javafx.fxml.FXML
+    public void VolverAtras(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("ingresoAdmin-view.fxml","Ingresos");
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        ObservableList<String> pago = FXCollections.observableArrayList();
+        pago.addAll("Gym", "Zumba", "Yoga", "Pilates", "Boxeo");
+        cbPago.setItems(pago);
+
+        ObservableList<String> grupo = FXCollections.observableArrayList();
+        grupo.addAll("Efectivo", "Tarjeta");
+        cbGrupo.setItems(grupo);
+
+
+        txtNombre.setText(Sesion.getIngresos().getNombre());
+        txtDinero.setText(String.valueOf(Sesion.getIngresos().getDinero()));
+        TADesc.setText(Sesion.getIngresos().getDescripcion());
+        cbPago.setValue(Sesion.getIngresos().getTipopago());
+        cbGrupo.setValue(Sesion.getIngresos().getGrupo());
     }
 }

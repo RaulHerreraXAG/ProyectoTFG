@@ -65,7 +65,7 @@ public class EmpleadosClientes implements Initializable {
     @javafx.fxml.FXML
     private Button ButtonEditarDieta;
 
-    @Deprecated
+    @Override
     public void initialize(URL url , ResourceBundle resourceBundle) {
             // Inicialmente establece todos los campos de texto como no editables
             txtNombre.setEditable(false);

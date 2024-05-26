@@ -13,10 +13,22 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -48,10 +60,6 @@ public class RutinaXClienteController implements Initializable {
     @javafx.fxml.FXML
     private TableView<Rutina> tvRutina;
     @javafx.fxml.FXML
-    private Button btnEjer;
-    @javafx.fxml.FXML
-    private Button btnRP;
-    @javafx.fxml.FXML
     private TableColumn<Rutina ,String> CCSeries;
     @javafx.fxml.FXML
     private TableColumn<Rutina ,String> CCRepes;
@@ -59,6 +67,8 @@ public class RutinaXClienteController implements Initializable {
     private TableColumn<Rutina ,String> CCEjercicio;
     @javafx.fxml.FXML
     private TableColumn<Rutina,String> CCliente;
+    @javafx.fxml.FXML
+    private Button btnAtras;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -196,18 +206,18 @@ public class RutinaXClienteController implements Initializable {
 
 
 
-    @javafx.fxml.FXML
+    @Deprecated
     public void Ejercicios(ActionEvent actionEvent) throws IOException {
         Main.changeScene("Ejercicios-view.fxml","Ejercicios");
     }
 
 
-
-    @javafx.fxml.FXML
+/*
+    @Deprecated
     public void AnadirRutinaPredeterminada(ActionEvent actionEvent) throws IOException {
         Main.changeScene("ARP-rutina.fxml","Selección de Rutina");
     }
-
+ */
 
     public void VolverAtras(ActionEvent actionEvent) throws IOException {
         Clientes clientes = Sesion.getCliente();
@@ -215,4 +225,28 @@ public class RutinaXClienteController implements Initializable {
             Main.changeScene("view-empleado.fxml", "Cliente");
         }
     }
+
+    @javafx.fxml.FXML
+    public void DescargarRutina(ActionEvent actionEvent) throws SQLException, JRException {
+        /*
+    METODO PARA PDF / JASPERSOFT
+    */
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/maxfitdb", "root", "");
+        HashMap<String, Object> hashMap = new HashMap<>();
+
+        // Asegúrate de pasar el parámetro correcto al informe
+        hashMap.put("matriculaCliente", Sesion.getCliente().getMatricula());
+
+        JasperPrint jasperPrint = JasperFillManager.fillReport("RutinaPDF.jasper", hashMap, connection);
+
+        // Mostrar el informe en una ventana
+        JasperViewer.viewReport(jasperPrint, false);
+
+        JRPdfExporter exp = new JRPdfExporter();
+        exp.setExporterInput(new SimpleExporterInput(jasperPrint));
+        exp.setExporterOutput(new SimpleOutputStreamExporterOutput("Rutina.pdf"));
+        exp.setConfiguration(new SimplePdfExporterConfiguration());
+        exp.exportReport();
+    }
+
 }

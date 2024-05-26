@@ -11,10 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -112,27 +109,34 @@ public class CrearRutina implements Initializable {
     }
 
     @javafx.fxml.FXML
-    public void CerrarSesion(ActionEvent actionEvent) {
+    public void CerrarSesion(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("login-view.fxml","Inicio Sesión");
     }
 
     @javafx.fxml.FXML
-    public void Clientes(ActionEvent actionEvent) {
+    public void Ingresos(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("ingreso-view.fxml","Ingresos");
     }
 
     @javafx.fxml.FXML
-    public void Ingresos(ActionEvent actionEvent) {
+    public void Pago(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("pago-view.fxml","Pagos");
+
     }
 
     @javafx.fxml.FXML
-    public void Pagos(ActionEvent actionEvent) {
+    public void Dietas(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("dieta-view.fxml","Dietas");
+
     }
 
     @javafx.fxml.FXML
-    public void Dietas(ActionEvent actionEvent) {
-    }
+    public void Rutina(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("Rutina-view.fxml","Rutina");
 
-    @javafx.fxml.FXML
-    public void Rutina(ActionEvent actionEvent) {
+    }
+    public void Cliente(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("view-empleado.fxml","Clientes");
     }
 
     @javafx.fxml.FXML
@@ -174,23 +178,29 @@ public class CrearRutina implements Initializable {
 
     @javafx.fxml.FXML
     public void SiguienteDia(ActionEvent actionEvent) throws IOException {
+
+
         RutinaDAO rutinaDAO = new RutinaDAO();
         Clientes cliente = Sesion.getCliente();
 
         // Obtener el ejercicio seleccionado en el ComboBox
         Ejercicios ejercicioSeleccionado = cbEjercicio1.getValue();
+        Ejercicios ejercicioSeleccionado2 = cbEjercicio2.getValue();
+        Ejercicios ejercicioSeleccionado3= cbEjercicio3.getValue();
+        Ejercicios ejercicioSeleccionado4 = cbEjercicio4.getValue();
+        Ejercicios ejercicioSeleccionado5 = cbEjercicio5.getValue();
+        Ejercicios ejercicioSeleccionado6 = cbEjercicio6.getValue();
+        Ejercicios ejercicioSeleccionado7 = cbEjercicio7.getValue();
+        Ejercicios ejercicioSeleccionado8 = cbEjercicio8.getValue();
 
-// Verificar si se seleccionó un ejercicio
+
+
+        // Verificar si se seleccionó un ejercicio
         if (ejercicioSeleccionado == null) {
             // Manejo del caso cuando no se ha seleccionado ningún ejercicio
             System.out.println("Seleccione un ejercicio.");
             return;
         }
-
-// Obtener el ID del ejercicio seleccionado
-        Integer idEjercicio = ejercicioSeleccionado.getId();
-
-
 
 
         // Crear una nueva instancia de Rutina y establecer sus atributos
@@ -201,14 +211,82 @@ public class CrearRutina implements Initializable {
         nuevaRutina.setSeries(Integer.valueOf(txtSeries1.getText()));
         nuevaRutina.setEjercicios(ejercicioSeleccionado); // Establecer el ejercicio en la rutina
 
+        // Crear una nueva instancia de Rutina y establecer sus atributos
+        Rutina nuevaRutina2 = new Rutina();
+        nuevaRutina2.setClientes(cliente);
+        nuevaRutina2.setDia(lblDIa.getText());
+        nuevaRutina2.setRepeticiones(Integer.valueOf(txtRepe2.getText()));
+        nuevaRutina2.setSeries(Integer.valueOf(txtSeries2.getText()));
+        nuevaRutina2.setEjercicios(ejercicioSeleccionado2); // Establecer el ejercicio en la rutina
+
+
+        // Crear una nueva instancia de Rutina y establecer sus atributos
+        Rutina nuevaRutina3 = new Rutina();
+        nuevaRutina3.setClientes(cliente);
+        nuevaRutina3.setDia(lblDIa.getText());
+        nuevaRutina3.setRepeticiones(Integer.valueOf(txtRepe3.getText()));
+        nuevaRutina3.setSeries(Integer.valueOf(txtSeries3.getText()));
+        nuevaRutina3.setEjercicios(ejercicioSeleccionado3); // Establecer el ejercicio en la rutina
+        // Crear una nueva instancia de Rutina y establecer sus atributos
+        Rutina nuevaRutina4 = new Rutina();
+        nuevaRutina4.setClientes(cliente);
+        nuevaRutina4.setDia(lblDIa.getText());
+        nuevaRutina4.setRepeticiones(Integer.valueOf(txtRepe4.getText()));
+        nuevaRutina4.setSeries(Integer.valueOf(txtSeries4.getText()));
+        nuevaRutina4.setEjercicios(ejercicioSeleccionado4); // Establecer el ejercicio en la rutina
+        // Crear una nueva instancia de Rutina y establecer sus atributos
+        Rutina nuevaRutina5 = new Rutina();
+        nuevaRutina5.setClientes(cliente);
+        nuevaRutina5.setDia(lblDIa.getText());
+        nuevaRutina5.setRepeticiones(Integer.valueOf(txtRepe5.getText()));
+        nuevaRutina5.setSeries(Integer.valueOf(txtSeries5.getText()));
+        nuevaRutina5.setEjercicios(ejercicioSeleccionado5); // Establecer el ejercicio en la rutina
+        // Crear una nueva instancia de Rutina y establecer sus atributos
+        Rutina nuevaRutina6 = new Rutina();
+        nuevaRutina6.setClientes(cliente);
+        nuevaRutina6.setDia(lblDIa.getText());
+        nuevaRutina6.setRepeticiones(Integer.valueOf(txtRepe6.getText()));
+        nuevaRutina6.setSeries(Integer.valueOf(txtSeries6.getText()));
+        nuevaRutina6.setEjercicios(ejercicioSeleccionado6); // Establecer el ejercicio en la rutina
+        // Crear una nueva instancia de Rutina y establecer sus atributos
+        Rutina nuevaRutina7 = new Rutina();
+        nuevaRutina7.setClientes(cliente);
+        nuevaRutina7.setDia(lblDIa.getText());
+        nuevaRutina7.setRepeticiones(Integer.valueOf(txtRepe7.getText()));
+        nuevaRutina7.setSeries(Integer.valueOf(txtSeries7.getText()));
+        nuevaRutina7.setEjercicios(ejercicioSeleccionado7); // Establecer el ejercicio en la rutina
+        // Crear una nueva instancia de Rutina y establecer sus atributos
+        Rutina nuevaRutina8 = new Rutina();
+        nuevaRutina8.setClientes(cliente);
+        nuevaRutina8.setDia(lblDIa.getText());
+        nuevaRutina8.setRepeticiones(Integer.valueOf(txtRepe8.getText()));
+        nuevaRutina8.setSeries(Integer.valueOf(txtSeries8.getText()));
+        nuevaRutina8.setEjercicios(ejercicioSeleccionado8); // Establecer el ejercicio en la rutina
+
         // Guardar la nueva rutina en la base de datos
         rutinaDAO.save(nuevaRutina);
+        rutinaDAO.save(nuevaRutina2);
+        rutinaDAO.save(nuevaRutina3);
+        rutinaDAO.save(nuevaRutina4);
+        rutinaDAO.save(nuevaRutina5);
+        rutinaDAO.save(nuevaRutina6);
+        rutinaDAO.save(nuevaRutina7);
+        rutinaDAO.save(nuevaRutina8);
         Sesion.setRutina(nuevaRutina);
+        if(nuevaRutina != null && nuevaRutina2 != null && nuevaRutina3 != null && nuevaRutina4 != null){
+            Main.changeScene("CR2-view.fxml", "Rutina Martes");
+        }else{
+            showAlert("Necesitas rellenar la primera columna","Rellena como minimo la primera columna para poder añadir el día");
+        }
 
-        // Cambiar a la siguiente escena
-        Main.changeScene("RutinaXcliente-view.fxml", "Rutina");
     }
-
+    private void showAlert(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
 
     @javafx.fxml.FXML
     public void VolverAtras(ActionEvent actionEvent) {

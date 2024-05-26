@@ -117,7 +117,8 @@ public class EditarCliente implements Initializable {
     }
 
     @javafx.fxml.FXML
-    public void VolverAtras(ActionEvent actionEvent) {
+    public void VolverAtras(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("view-empleado.fxml","Cliente");
     }
 
     @javafx.fxml.FXML

@@ -42,12 +42,6 @@ public class IngresosController implements Initializable {
     @javafx.fxml.FXML
     private Button btnPago;
     @javafx.fxml.FXML
-    private Button btnDietas;
-    @javafx.fxml.FXML
-    private Button btnRutina;
-    @javafx.fxml.FXML
-    private Button btnCI;
-    @javafx.fxml.FXML
     private TableView<Ingresos> tvIngresos;
     private ObservableList<Ingresos> observableList;
     @FXML
