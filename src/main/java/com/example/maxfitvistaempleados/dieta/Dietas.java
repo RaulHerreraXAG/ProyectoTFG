@@ -25,5 +25,8 @@ public class Dietas implements Serializable {
     @ManyToOne
     @JoinColumn(name = "id_receta", referencedColumnName = "id_receta")
     private Recetas receta;
+
+    @Column(name = "momento_dia")
+    private String momento;
 }
 

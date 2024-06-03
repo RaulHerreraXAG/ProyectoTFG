@@ -73,7 +73,7 @@ public class DietaxClienteController implements Initializable {
 
     private DietasDAO dietasDAO = new DietasDAO();
     @javafx.fxml.FXML
-    private Button btnDescargar;
+    private Button btnVA;
 
 
     @Override
@@ -173,7 +173,8 @@ public class DietaxClienteController implements Initializable {
     }
 
     @javafx.fxml.FXML
-    public void CrearDieta(ActionEvent actionEvent) {
+    public void CrearDieta(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("CrearDietaCliente.fxml","Crear dietas");
     }
 
 
@@ -184,28 +185,7 @@ public class DietaxClienteController implements Initializable {
 
 
     @javafx.fxml.FXML
-    public void DescargarDieta(ActionEvent actionEvent) throws SQLException, JRException {
-    /*
-    METODO PARA PDF / JASPERSOFT
-    */
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/maxfitdb", "root", "");
-        HashMap<String, Object> hashMap = new HashMap<>();
-
-        // Asegúrate de pasar el parámetro correcto al informe
-        hashMap.put("matriculaCliente", Sesion.getCliente().getMatricula());
-
-        JasperPrint jasperPrint = JasperFillManager.fillReport("DietaPDF.jasper", hashMap, connection);
-
-        // Mostrar el informe en una ventana
-        JasperViewer.viewReport(jasperPrint, false);
-
-        JRPdfExporter exp = new JRPdfExporter();
-        exp.setExporterInput(new SimpleExporterInput(jasperPrint));
-        exp.setExporterOutput(new SimpleOutputStreamExporterOutput("Dieta.pdf"));
-        exp.setConfiguration(new SimplePdfExporterConfiguration());
-        exp.exportReport();
+    public void Goback(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("view-empleado.fxml","Cliente");
     }
-
-
-
 }

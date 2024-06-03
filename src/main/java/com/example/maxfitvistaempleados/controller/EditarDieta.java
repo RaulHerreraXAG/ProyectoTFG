@@ -58,6 +58,8 @@ public class EditarDieta implements Initializable {
     private TextField txtGrasas;
     @javafx.fxml.FXML
     private TextField txtCH;
+    @javafx.fxml.FXML
+    private ComboBox<String> cbMenu;
 
 
     @Override
@@ -65,6 +67,9 @@ public class EditarDieta implements Initializable {
         ObservableList<String> dias = FXCollections.observableArrayList();
         dias.addAll("Lunes","Martes","Miercoles","Jueves","Viernes","Sábado","Domingo");
         cbDia.setItems(dias);
+        ObservableList<String> menu = FXCollections.observableArrayList();
+        dias.addAll("Desayuno","Almuerzo","Cena");
+        cbMenu.setItems(menu);
 
 
         txtNombre.setText(Sesion.getDietas().getReceta().getNombre());
@@ -72,6 +77,7 @@ public class EditarDieta implements Initializable {
         txtPasos.setText(Sesion.getDietas().getReceta().getPasos());
         txtTiempo.setText(String.valueOf(Sesion.getDietas().getReceta().getTiempoPreparacion()));
         cbDia.setValue(Sesion.getDietas().getDia());
+        cbMenu.setValue(Sesion.getDietas().getMomento());
         txtCH.setText(String.valueOf(Sesion.getDietas().getReceta().getCarbohidratosTotal()));
         txtGrasas.setText(String.valueOf(Sesion.getDietas().getReceta().getGrasasTotal()));
         // Formatear la lista de alimentos
@@ -121,7 +127,8 @@ public class EditarDieta implements Initializable {
 
 
     @javafx.fxml.FXML
-    public void VolverAtras(ActionEvent actionEvent) {
+    public void VolverAtras(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("dietaXcliente-view.fxml","Dieta del cliente");
     }
 
 
@@ -149,6 +156,7 @@ public class EditarDieta implements Initializable {
         dietas.setId_dieta(Sesion.getDietas().getId_dieta());
         dietas.setClientes(clientes);  // Asignar el cliente guardado a la dieta
         dietas.setDia(cbDia.getValue());
+        dietas.setMomento(cbMenu.getValue());
         dietas.setReceta(recetas);
 
         System.out.println(recetas.getIdReceta());
@@ -172,15 +180,26 @@ public class EditarDieta implements Initializable {
         // Alerta que indica que el pedido fue creado con éxito.
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("¡Éxito!");
-        alert.setHeaderText("El cliente ha sido actualizado");
-        alert.setContentText("Nombre del Cliente: " + Sesion.getCliente().getNombre() + " realizado por " +  Sesion.getEmpleado().getNombre() + " " + Sesion.getEmpleado().getApellidos());
+        alert.setHeaderText("La receta ha sido actualizada");
+        alert.setContentText("Nombre de la receta: " + Sesion.getDietas().getReceta().getNombre() + " realizado por " +  Sesion.getEmpleado().getNombre() + " " + Sesion.getEmpleado().getApellidos());
         alert.showAndWait();
     }
 
 
     @javafx.fxml.FXML
-    public void EReceta(ActionEvent actionEvent) {
+    public void EReceta(ActionEvent actionEvent) throws IOException {
+        var dietaSelec = Sesion.getDietas();
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText("¿Deseas borrar la receta llamada: " + dietaSelec.getReceta().getNombre() + "?");
+        var result = alert.showAndWait().get();
+
+        if (result.getButtonData() == ButtonBar.ButtonData.OK_DONE) {
+            dietasDAO.delete(dietaSelec);
+            Main.changeScene("dietaXcliente-view.fxml", "Dieta del cliente");
+        }
     }
+
 
     private void showAlert(String title, String content) {
         Alert alert = new Alert(Alert.AlertType.ERROR);

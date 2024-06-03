@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.util.StringConverter;
 
 import java.io.IOException;
 import java.net.URL;
@@ -95,17 +96,39 @@ public class CrearRutina implements Initializable {
         ejerciciosObservableList = FXCollections.observableArrayList();
         EjerciciosDAO ejerciciosDAO = new EjerciciosDAO();
         ejerciciosObservableList.setAll(ejerciciosDAO.getAll());
-        cbEjercicio1.setItems(ejerciciosObservableList);
-        cbEjercicio2.setItems(ejerciciosObservableList);
-        cbEjercicio3.setItems(ejerciciosObservableList);
-        cbEjercicio4.setItems(ejerciciosObservableList);
-        cbEjercicio5.setItems(ejerciciosObservableList);
-        cbEjercicio6.setItems(ejerciciosObservableList);
-        cbEjercicio7.setItems(ejerciciosObservableList);
-        cbEjercicio8.setItems(ejerciciosObservableList);
+
+        // Set items for all ComboBoxes
+        setComboBoxItems(cbEjercicio1);
+        setComboBoxItems(cbEjercicio2);
+        setComboBoxItems(cbEjercicio3);
+        setComboBoxItems(cbEjercicio4);
+        setComboBoxItems(cbEjercicio5);
+        setComboBoxItems(cbEjercicio6);
+        setComboBoxItems(cbEjercicio7);
+        setComboBoxItems(cbEjercicio8);
         lblDIa.setText("Lunes");
 
 
+    }
+    private void setComboBoxItems(ComboBox<Ejercicios> comboBox) {
+        comboBox.setItems(ejerciciosObservableList);
+        comboBox.setConverter(new StringConverter<Ejercicios>() {
+            @Override
+            public String toString(Ejercicios object) {
+                if (object != null) {
+                    return object.getNombre();
+                } else {
+                    return ""; // or any default string value you want to return when object is null
+                }
+            }
+
+
+            @Override
+            public Ejercicios fromString(String string) {
+                return comboBox.getItems().stream().filter(ap ->
+                        ap.getNombre().equals(string)).findFirst().orElse(null);
+            }
+        });
     }
 
     @javafx.fxml.FXML

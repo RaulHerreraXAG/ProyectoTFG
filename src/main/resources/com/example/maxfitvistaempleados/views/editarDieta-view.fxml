@@ -71,16 +71,33 @@
             <RowConstraints maxHeight="230.0" minHeight="10.0" prefHeight="155.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <VBox GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="76.0" text="Dia">
-                     <HBox.margin>
-                        <Insets right="50.0" />
-                     </HBox.margin>
-                  </Label>
-                  <ComboBox fx:id="cbDia" prefHeight="25.0" prefWidth="200.0" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="76.0" text="Dia">
+                           <HBox.margin>
+                              <Insets right="50.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ComboBox fx:id="cbDia" prefHeight="25.0" prefWidth="200.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="76.0" text="Menú">
+                           <HBox.margin>
+                              <Insets right="50.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ComboBox fx:id="cbMenu" prefHeight="25.0" prefWidth="200.0" />
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
+            </VBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                <children>
                   <Label alignment="CENTER" prefWidth="44.0" text="Tiempo">
