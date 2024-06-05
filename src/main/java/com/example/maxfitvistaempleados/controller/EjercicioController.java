@@ -53,8 +53,6 @@ public class EjercicioController  implements Initializable {
     @javafx.fxml.FXML
     private Button btnEj;
     @javafx.fxml.FXML
-    private Button btnBI;
-    @javafx.fxml.FXML
     private Button btnVolver;
 
     private ObservableList<Ejercicios> observableList;
@@ -108,12 +106,10 @@ public class EjercicioController  implements Initializable {
     }
 
     @javafx.fxml.FXML
-    public void CrearEjerc(ActionEvent actionEvent) {
+    public void CrearEjerc(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("C-E-view.fxml","Crear Ejercicio");
     }
 
-    @javafx.fxml.FXML
-    public void BorrarEjer(ActionEvent actionEvent) {
-    }
 
     @javafx.fxml.FXML
     public void Volver(ActionEvent actionEvent) throws IOException {
@@ -159,7 +155,7 @@ public class EjercicioController  implements Initializable {
                 if (ejercicios != null) {
                     Sesion.setEjercicios(ejercicios);
                     try {
-                        Main.changeScene("EEjericic-view.fxml","Editar Ejercicios");
+                        Main.changeScene("ER-view.fxml","Editar Ejercicios");
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
@@ -167,6 +163,5 @@ public class EjercicioController  implements Initializable {
             }
         });
     }
-
 
 }

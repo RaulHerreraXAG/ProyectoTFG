@@ -132,14 +132,6 @@
                <font>
                   <Font name="Calibri Italic" size="12.0" />
                </font></Button>
-            <Button fx:id="btnBI" mnemonicParsing="false" onAction="#BorrarEjer" prefHeight="25.0" prefWidth="136.0" text="Borrar Ejercicio">
-               <HBox.margin>
-                  <Insets left="60.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="Calibri Italic" size="12.0" />
-               </font>
-            </Button>
             <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#Volver" prefHeight="25.0" prefWidth="136.0" text="Volver Atras">
                <HBox.margin>
                   <Insets left="60.0" />
