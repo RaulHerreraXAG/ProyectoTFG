@@ -1,18 +1,125 @@
+/* Estilos existentes */
 .textoLogin {
-    -fx-background-color:trasparent;
+    -fx-background-color: transparent;
     -fx-border-color: #d02525;
-    -fx-border-width:  0px 0px 2px 0px;
-
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-text-fill: white;
 }
-.wallpaper{
+.textoLogin2 {
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-text-fill: white;
+}
+.wallpaper {
     -fx-background-image: url("images/layered-waves-haikei-_11_-_1_.jpg");
 }
 
-.button{
-    -fx-background-color: black;
-    -fx-background-radius: 15px ;
+/* Estilizar el Toolbar */
+.toolbar {
+    -fx-background-color: #333; /* Fondo oscuro para complementar los botones negros */
+    -fx-padding: 10px; /* Añadir algo de padding para espaciar los elementos */
 }
-.button:hover{
-    -fx-background-color: grey;
-    -fx-background-radius: 15px ;
+
+/* Estilizar los Botones */
+.button {
+    -fx-background-color: black;
+    -fx-text-fill: white; /* Hacer el texto blanco para que contraste con el fondo negro */
+    -fx-background-radius: 15px;
+    -fx-padding: 5px 15px; /* Añadir algo de padding para que los botones se vean mejor */
+    -fx-border-color: #d02525; /* Agregar borde rojo */
+    -fx-border-width: 1px; /* Grosor del borde */
+    -fx-border-radius: 15px; /* Asegurar que el borde siga la forma del botón */
+}
+
+/* Estilizar los Botones al pasar el mouse */
+.button:hover {
+    -fx-background-color: #555; /* Cambiar el color de fondo al pasar el mouse para dar feedback visual */
+}
+
+.wallpaper2 {
+    -fx-background-image: url("images/gym_dumbbells_inventory_219519_1280x720_2.jpg");
+}
+
+.button {
+    -fx-background-color: #d02525;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+}
+/* Estilos del ComboBox */
+.combo-box {
+    -fx-background-color: #d02525; /* Color de fondo similar al de los botones */
+    -fx-border-color: #ffffff;
+    -fx-border-width: 1px;
+    -fx-padding: 1px; /* Reducir padding para hacer el ComboBox menos alto */
+    -fx-font-size: 14px;
+    -fx-text-fill: white; /* Texto en blanco */
+    -fx-pref-height: 15px; /* Altura preferida del ComboBox */
+}
+
+.combo-box .list-cell {
+    -fx-padding: 2px; /* Reducir padding para hacer las celdas menos altas */
+    -fx-background-color: #d02525; /* Color de fondo similar al de los botones */
+    -fx-text-fill: white; /* Texto en blanco */
+}
+
+.combo-box .list-cell:filled:selected,
+.combo-box .list-cell:filled:hover {
+    -fx-background-color: #c25252; /* Color de fondo para celdas seleccionadas/hover */
+    -fx-text-fill: #ffffff; /* Texto negro */
+}
+
+.combo-box .combo-box-popup .list-view {
+    -fx-background-color: #d02525; /* Color de fondo similar al de los botones */
+    -fx-border-color: #b0b0b0;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: #d02525; /* Color de fondo similar al de los botones */
+    -fx-border-color: #b0b0b0;
+    -fx-pref-height: 25px; /* Altura preferida del botón de flecha */
+}
+
+.combo-box .arrow-button .arrow {
+    -fx-background-color: #808080;
+}
+
+
+/* Nuevo estilo para el DialogPane */
+.custom-choice-dialog {
+    -fx-background-color: #333; /* Fondo oscuro */
+    -fx-border-color: #a4a4a4;
+    -fx-border-width: 2px;
+}
+/* Estilo para la TableView */
+.table-view {
+    -fx-background-color: transparent; /* Fondo transparente para ver el fondo detrás */
+}
+
+/* Estilo para las TableColumns */
+.table-column {
+    -fx-alignment: CENTER; /* Alineación central del contenido de las columnas */
+    -fx-font-size: 14px; /* Tamaño de fuente */
+    -fx-text-fill: #8a0000; /* Color de texto blanco */
+}
+
+/* Estilo para las celdas de la TableView */
+.table-cell {
+    -fx-background-color: transparent; /* Fondo transparente */
+    -fx-border-color: #333; /* Color del borde */
+    -fx-border-width: 0 0 1 0; /* Grosor del borde */
+}
+
+/* Estilo para las celdas al pasar el mouse */
+.table-row-cell:hover .table-cell {
+    -fx-background-color: #8a0000;
+    -fx-text-fill: white
+    /* Cambio de color al pasar el mouse */
+}
+
+/* Estilo para las celdas seleccionadas */
+.table-row-cell:selected .table-cell {
+    -fx-background-color: #c25252; /* Cambio de color al seleccionar */
+    -fx-text-fill: white;
 }

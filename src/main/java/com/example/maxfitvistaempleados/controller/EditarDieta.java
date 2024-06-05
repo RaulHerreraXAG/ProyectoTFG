@@ -68,7 +68,7 @@ public class EditarDieta implements Initializable {
         dias.addAll("Lunes","Martes","Miercoles","Jueves","Viernes","Sábado","Domingo");
         cbDia.setItems(dias);
         ObservableList<String> menu = FXCollections.observableArrayList();
-        dias.addAll("Desayuno","Almuerzo","Cena");
+        menu.addAll("Desayuno","Almuerzo","Cena");
         cbMenu.setItems(menu);
 
 

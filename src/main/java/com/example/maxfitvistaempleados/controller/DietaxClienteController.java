@@ -10,10 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -174,7 +171,12 @@ public class DietaxClienteController implements Initializable {
 
     @javafx.fxml.FXML
     public void CrearDieta(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("CrearDietaCliente.fxml","Crear dietas");
+        Clientes clientes = Sesion.getCliente();
+        if(clientes != null){
+            Main.changeScene("CD-view.fxml","Creación de Dieta Lunes");
+        }else{
+            showAlert("ERROR","No existe cliente");
+        }
     }
 
 
@@ -187,5 +189,13 @@ public class DietaxClienteController implements Initializable {
     @javafx.fxml.FXML
     public void Goback(ActionEvent actionEvent) throws IOException {
         Main.changeScene("view-empleado.fxml","Cliente");
+    }
+
+    private void showAlert(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }

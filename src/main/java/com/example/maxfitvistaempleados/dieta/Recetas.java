@@ -35,4 +35,7 @@ public class Recetas implements Serializable {
 
     @Column(name = "alimentos")
     private String alimentos;
+
+    @Column(name = "momento_dia")
+    private String momento_dia;
 }

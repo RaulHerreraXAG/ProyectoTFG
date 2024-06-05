@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -15,8 +16,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maxfitvistaempleados.controller.EditarIngresos">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" styleClass="wallpaper2" stylesheets="@../../../../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maxfitvistaempleados.controller.EditarIngresos">
    <top>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -29,6 +32,13 @@
                      <HBox.margin>
                         <Insets left="145.0" right="180.0" top="20.0" />
                      </HBox.margin>
+                     <effect>
+                        <Shadow height="0.0" radius="0.0" width="0.0">
+                           <color>
+                              <Color red="1.0" />
+                           </color>
+                        </Shadow>
+                     </effect>
                   </ImageView>
                   <Button fx:id="ButtonSesion" mnemonicParsing="false" onAction="#CerrarSesion" prefHeight="25.0" prefWidth="132.0" text="Cerrar Sesión">
                      <HBox.margin>
@@ -40,7 +50,7 @@
                   <Insets left="360.0" top="20.0" />
                </VBox.margin>
             </HBox>
-            <ToolBar maxWidth="1213.0" prefHeight="35.0" prefWidth="1213.0">
+            <ToolBar maxWidth="1221.0" prefHeight="45.0" prefWidth="1221.0" styleClass="toolbar">
               <items>
                 <Button fx:id="buittonCliente" mnemonicParsing="false" onAction="#Clientes" prefHeight="25.0" prefWidth="237.0" text="Clientes" />
                   <Button fx:id="buttonIngresos" mnemonicParsing="false" onAction="#Ingresos" prefHeight="25.0" prefWidth="237.0" text="Ingresos" />
@@ -94,50 +104,65 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <Label text="Dinero">
+                        <Label alignment="CENTER" prefWidth="107.0" text="Dinero" textFill="WHITE">
                            <HBox.margin>
                               <Insets right="50.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
                         </Label>
-                        <TextField fx:id="txtDinero" prefWidth="200.0" />
+                        <TextField fx:id="txtDinero" prefWidth="200.0" styleClass="textoLogin2" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="25.0" prefWidth="609.0" GridPane.rowIndex="1">
                      <children>
-                        <Label text="Tipo de Pago">
+                        <Label alignment="CENTER" prefWidth="107.0" text="Tipo de Pago" textFill="WHITE">
                            <HBox.margin>
                               <Insets right="50.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
                         </Label>
                         <ComboBox fx:id="cbPago" prefHeight="25.0" prefWidth="216.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
-                        <Label text="Grupo">
+                        <Label alignment="CENTER" prefWidth="107.0" text="Grupo" textFill="WHITE">
                            <HBox.margin>
                               <Insets right="50.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
                         </Label>
                         <ComboBox fx:id="cbGrupo" prefHeight="25.0" prefWidth="203.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="55.0" text="Nombre">
+                        <Label alignment="CENTER" prefHeight="23.0" prefWidth="107.0" text="Nombre" textFill="WHITE">
                            <HBox.margin>
                               <Insets right="50.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
                         </Label>
-                        <TextField fx:id="txtNombre" prefWidth="200.0" />
+                        <TextField fx:id="txtNombre" prefWidth="200.0" styleClass="textoLogin2" />
                      </children>
                   </HBox>
                </children>
             </GridPane>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="95.0" text="Descripción">
+            <Label alignment="CENTER" prefHeight="23.0" prefWidth="126.0" text="Descripción" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="20.0" left="140.0" right="20.0" top="50.0" />
-               </VBox.margin></Label>
+               </VBox.margin>
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font></Label>
             <TextArea fx:id="TADesc" prefHeight="200.0" prefWidth="200.0">
                <VBox.margin>
                   <Insets left="155.0" right="200.0" />

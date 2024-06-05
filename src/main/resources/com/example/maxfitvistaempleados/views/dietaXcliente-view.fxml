@@ -6,13 +6,15 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maxfitvistaempleados.controller.DietaxClienteController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="wallpaper2" stylesheets="@../../../../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maxfitvistaempleados.controller.DietaxClienteController">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -22,7 +24,6 @@
                      <HBox.margin>
                         <Insets right="60.0" />
                      </HBox.margin></ComboBox>
-                  <ComboBox fx:id="cbNombreReceta" onAction="#bqReceta" prefWidth="229.0" promptText="Grupo Muscular" />
                </children>
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -49,17 +50,24 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <ImageView fitHeight="95.0" fitWidth="179.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="95.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../images/Logo-Maxfit-Vélez-Málaga%20(1).png" />
                      </image>
                      <HBox.margin>
-                        <Insets right="440.0" />
+                        <Insets right="410.0" />
                      </HBox.margin>
+                     <effect>
+                        <Shadow height="0.0" radius="0.0" width="0.0">
+                           <color>
+                              <Color red="1.0" />
+                           </color>
+                        </Shadow>
+                     </effect>
                   </ImageView>
-                  <Button fx:id="btnCerrarSesion" alignment="CENTER" mnemonicParsing="false" onAction="#CerrarSesion" text="Cerrar Sesión">
+                  <Button fx:id="btnCerrarSesion" alignment="CENTER" mnemonicParsing="false" onAction="#CerrarSesion" prefHeight="29.0" prefWidth="112.0" text="Cerrar Sesión">
                      <HBox.margin>
-                        <Insets bottom="30.0" right="-500.0" />
+                        <Insets bottom="30.0" right="-510.0" />
                      </HBox.margin>
                   </Button>
                </children>
@@ -67,13 +75,13 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </HBox>
-            <ToolBar prefHeight="40.0" prefWidth="200.0">
+            <ToolBar prefHeight="40.0" prefWidth="200.0" styleClass="toolbar">
               <items>
                 <Button fx:id="btnCliente" mnemonicParsing="false" onAction="#Cliente" prefWidth="237.0" text="Clientes" />
                   <Button fx:id="BtnIngresos" mnemonicParsing="false" onAction="#Ingresos" prefWidth="237.0" text="Ingresos" />
                   <Button fx:id="btnPago" mnemonicParsing="false" onAction="#Pago" prefWidth="237.0" text="Pagos" />
                   <Button fx:id="btnDietas" mnemonicParsing="false" onAction="#Dietas" prefWidth="237.0" text="Dietas" />
-                  <Button fx:id="btnRutina" mnemonicParsing="false" onAction="#Rutina" prefWidth="237.0" text="Rutinas" />
+                  <Button fx:id="btnRutina" mnemonicParsing="false" onAction="#Rutina" prefHeight="29.0" prefWidth="255.0" text="Rutinas" />
               </items>
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -85,7 +93,7 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="62.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnCD" mnemonicParsing="false" onAction="#CrearDieta" prefHeight="25.0" prefWidth="161.0" text="Crear Dieta Personalizada" />
+            <Button fx:id="btnCD" mnemonicParsing="false" onAction="#CrearDieta" prefHeight="29.0" prefWidth="181.0" text="Crear Dieta Personalizada" />
             <Button fx:id="btnVA" mnemonicParsing="false" onAction="#Goback" prefHeight="25.0" prefWidth="161.0" text="Volver Atrás">
                <HBox.margin>
                   <Insets left="60.0" right="60.0" />

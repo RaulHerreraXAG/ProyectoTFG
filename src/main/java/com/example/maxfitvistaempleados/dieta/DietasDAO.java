@@ -134,4 +134,11 @@ public class DietasDAO implements DAO<Dietas> {
         // Reemplaza 'dietaDAO' con tu DAO real
         return DietasDAO.findById(id);
     }
+
+    public static Long countClientes() {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Long> query = session.createQuery("select count(d) from Dietas d", Long.class);
+            return query.uniqueResult();
+        }
+    }
 }

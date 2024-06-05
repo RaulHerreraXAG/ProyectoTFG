@@ -41,16 +41,12 @@ public class RutinaController implements Initializable {
     private Button btnDietas;
     @javafx.fxml.FXML
     private Button btnRutina;
-    @javafx.fxml.FXML
-    private Button btnCR;
     private ObservableList<Rutina> observableList;
     private RutinaDAO rutinaDAO = new RutinaDAO();
     @javafx.fxml.FXML
     private TableView<Rutina> tvRutina;
     @javafx.fxml.FXML
     private Button btnEjer;
-    @javafx.fxml.FXML
-    private Button btnRP;
     @javafx.fxml.FXML
     private TableColumn<Rutina ,String> CCSeries;
     @javafx.fxml.FXML
@@ -169,11 +165,6 @@ public class RutinaController implements Initializable {
         Main.changeScene("view-empleado.fxml","Clientes");
     }
 
-    @javafx.fxml.FXML
-    public void CrearRutina(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("CR-rutina.fxml","Creacion de Rutina");
-    }
-
 
 
     @javafx.fxml.FXML
@@ -182,10 +173,5 @@ public class RutinaController implements Initializable {
     }
 
 
-
-    @javafx.fxml.FXML
-    public void AnadirRutinaPredeterminada(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("ARP-rutina.fxml","Selección de Rutina");
-    }
 
 }

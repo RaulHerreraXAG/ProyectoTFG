@@ -159,7 +159,7 @@ public class EjercicioController  implements Initializable {
                 if (ejercicios != null) {
                     Sesion.setEjercicios(ejercicios);
                     try {
-                        Main.changeScene("EE-view.fxml","Editar Ejercicios");
+                        Main.changeScene("EEjericic-view.fxml","Editar Ejercicios");
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }

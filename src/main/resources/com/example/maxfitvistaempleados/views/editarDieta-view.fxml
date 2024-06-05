@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -15,8 +16,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maxfitvistaempleados.controller.EditarDieta">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" styleClass="wallpaper2" stylesheets="@../../../../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maxfitvistaempleados.controller.EditarDieta">
    <top>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -29,24 +32,49 @@
                      <HBox.margin>
                         <Insets left="145.0" right="180.0" top="20.0" />
                      </HBox.margin>
+                     <effect>
+                        <Shadow height="1.0" radius="0.0" width="0.0">
+                           <color>
+                              <Color red="1.0" />
+                           </color>
+                        </Shadow>
+                     </effect>
                   </ImageView>
                   <Button fx:id="ButtonSesion" mnemonicParsing="false" onAction="#CerrarSesion" prefHeight="25.0" prefWidth="132.0" text="Cerrar Sesión">
                      <HBox.margin>
                         <Insets bottom="10.0" left="225.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Italic" size="12.0" />
+                     </font>
                   </Button>
                </children>
                <VBox.margin>
                   <Insets left="360.0" top="20.0" />
                </VBox.margin>
             </HBox>
-            <ToolBar maxWidth="1213.0" prefHeight="35.0" prefWidth="1213.0">
+            <ToolBar maxWidth="1225.0" prefHeight="45.0" prefWidth="1225.0" styleClass="toolbar">
               <items>
-                <Button fx:id="buittonCliente" mnemonicParsing="false" prefHeight="25.0" prefWidth="237.0" text="Clientes" />
-                  <Button fx:id="buttonIngresos" mnemonicParsing="false" onAction="#Ingresos" prefHeight="25.0" prefWidth="237.0" text="Ingresos" />
-                  <Button fx:id="btnPagos" mnemonicParsing="false" onAction="#Pago" prefHeight="25.0" prefWidth="237.0" text="Pagos" />
-                  <Button fx:id="btnDietas" mnemonicParsing="false" onAction="#Dietas" prefHeight="25.0" prefWidth="237.0" text="Dietas" />
-                  <Button fx:id="btnRutina" mnemonicParsing="false" onAction="#Rutina" prefHeight="25.0" prefWidth="237.0" text="Rutinas" />
+                <Button fx:id="buittonCliente" mnemonicParsing="false" prefHeight="25.0" prefWidth="237.0" text="Clientes">
+                     <font>
+                        <Font name="Calibri Italic" size="12.0" />
+                     </font></Button>
+                  <Button fx:id="buttonIngresos" mnemonicParsing="false" onAction="#Ingresos" prefHeight="25.0" prefWidth="237.0" text="Ingresos">
+                     <font>
+                        <Font name="Calibri Italic" size="12.0" />
+                     </font></Button>
+                  <Button fx:id="btnPagos" mnemonicParsing="false" onAction="#Pago" prefHeight="25.0" prefWidth="237.0" text="Pagos">
+                     <font>
+                        <Font name="Calibri Italic" size="12.0" />
+                     </font></Button>
+                  <Button fx:id="btnDietas" mnemonicParsing="false" onAction="#Dietas" prefHeight="25.0" prefWidth="237.0" text="Dietas">
+                     <font>
+                        <Font name="Calibri Italic" size="12.0" />
+                     </font></Button>
+                  <Button fx:id="btnRutina" mnemonicParsing="false" onAction="#Rutina" prefHeight="25.0" prefWidth="237.0" text="Rutinas">
+                     <font>
+                        <Font name="Calibri Italic" size="12.0" />
+                     </font></Button>
               </items>
                <VBox.margin>
                   <Insets left="20.0" right="20.0" />
@@ -75,23 +103,29 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="76.0" text="Dia">
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="119.0" text="Dia" textFill="WHITE">
                            <HBox.margin>
                               <Insets right="50.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
                         </Label>
                         <ComboBox fx:id="cbDia" prefHeight="25.0" prefWidth="200.0" />
                      </children>
                      <VBox.margin>
-                        <Insets bottom="20.0" />
+                        <Insets bottom="10.0" />
                      </VBox.margin>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="76.0" text="Menú">
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="119.0" text="Menú" textFill="WHITE">
                            <HBox.margin>
                               <Insets right="50.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
                         </Label>
                         <ComboBox fx:id="cbMenu" prefHeight="25.0" prefWidth="200.0" />
                      </children>
@@ -100,73 +134,103 @@
             </VBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                <children>
-                  <Label alignment="CENTER" prefWidth="44.0" text="Tiempo">
+                  <Label alignment="CENTER" prefWidth="119.0" text="Tiempo" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                     </font>
                   </Label>
                   <TextField fx:id="txtTiempo" prefWidth="200.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <Label alignment="CENTER" prefWidth="76.0" text="Kcal">
+                  <Label alignment="CENTER" prefWidth="119.0" text="Kcal" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                     </font>
                   </Label>
                   <TextField fx:id="txtKcal" prefWidth="200.0" />
                </children>
+               <GridPane.margin>
+                  <Insets bottom="10.0" />
+               </GridPane.margin>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" text="Nombre">
+                  <Label alignment="CENTER" prefWidth="119.0" text="Nombre" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                     </font>
                   </Label>
                   <TextField fx:id="txtNombre" prefHeight="25.0" prefWidth="200.0" />
                </children>
             </HBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
-                  <Label prefHeight="17.0" prefWidth="469.0" text="Receta">
+                  <Label prefHeight="17.0" prefWidth="469.0" text="Receta" textFill="WHITE">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                     </font>
                   </Label>
                   <TextArea fx:id="txtPasos" maxHeight="107.0" maxWidth="471.0" minHeight="100.0" minWidth="400.0" prefHeight="107.0" prefWidth="471.0" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
                <children>
-                  <Label prefHeight="17.0" prefWidth="469.0" text="Alimentos">
+                  <Label prefHeight="17.0" prefWidth="469.0" text="Alimentos" textFill="WHITE">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                     </font>
                   </Label>
                   <TextArea fx:id="txtAlimentos" maxHeight="107.0" maxWidth="471.0" minHeight="100.0" minWidth="400.0" prefHeight="107.0" prefWidth="471.0" />
                </children>
             </VBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
                <children>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="44.0" text="Grasas">
+                  <Label alignment="CENTER" prefHeight="23.0" prefWidth="119.0" text="Grasas" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                     </font>
                   </Label>
                   <TextField fx:id="txtGrasas" prefWidth="200.0" />
                </children>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Label text="Carbohidratos">
+                  <Label text="Carbohidratos" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                     </font>
                   </Label>
                   <TextField fx:id="txtCH" prefWidth="200.0" />
                </children>
+               <GridPane.margin>
+                  <Insets top="30.0" />
+               </GridPane.margin>
             </HBox>
          </children>
          <BorderPane.margin>
@@ -181,13 +245,22 @@
                <HBox.margin>
                   <Insets />
                </HBox.margin>
+               <font>
+                  <Font name="Calibri Italic" size="12.0" />
+               </font>
             </Button>
             <Button fx:id="ButtonAtras" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#VolverAtras" prefHeight="25.0" prefWidth="140.0" text="Volver Atrás">
                <HBox.margin>
                   <Insets left="60.0" right="60.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Calibri Italic" size="12.0" />
+               </font>
             </Button>
-            <Button fx:id="ButtonEliminar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#EReceta" prefHeight="25.0" prefWidth="140.0" text="Eliminar Receta" />
+            <Button fx:id="ButtonEliminar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#EReceta" prefHeight="25.0" prefWidth="140.0" text="Eliminar Receta">
+               <font>
+                  <Font name="Calibri Italic" size="12.0" />
+               </font></Button>
          </children>
       </HBox>
    </bottom>

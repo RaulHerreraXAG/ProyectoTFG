@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -15,17 +16,18 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maxfitvistaempleados.controller.EmpleadosClientes">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" styleClass="wallpaper2" stylesheets="@../../../../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maxfitvistaempleados.controller.EmpleadosClientes">
    <top>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="txtBusqueda" alignment="CENTER" onAction="#Busquedad" prefHeight="28.0" prefWidth="390.0" promptText="Busqueda de Clientes">
+                  <TextField fx:id="txtBusqueda" alignment="CENTER" onAction="#Busquedad" prefHeight="28.0" prefWidth="390.0" promptText="Busqueda de Clientes" styleClass="textoLogin2" stylesheets="@../../../../style.css">
                      <font>
-                        <Font size="17.0" />
+                        <Font name="Calibri Italic" size="20.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="40.0" />
@@ -38,24 +40,49 @@
                      <HBox.margin>
                         <Insets bottom="40.0" left="135.0" right="180.0" />
                      </HBox.margin>
+                     <effect>
+                        <Shadow blurType="GAUSSIAN" height="0.0" radius="0.0" width="0.0">
+                           <color>
+                              <Color red="1.0" />
+                           </color>
+                        </Shadow>
+                     </effect>
                   </ImageView>
-                  <Button fx:id="ButtonSesion" mnemonicParsing="false" onAction="#CerrarSesion" prefHeight="25.0" prefWidth="132.0" text="Cerrar Sesión">
+                  <Button fx:id="ButtonSesion" mnemonicParsing="false" onAction="#CerrarSesion" prefHeight="25.0" prefWidth="132.0" text="Cerrar Sesión" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="200.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold Italic" size="12.0" />
+                     </font>
                   </Button>
                </children>
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
             </HBox>
-            <ToolBar maxWidth="1213.0" prefHeight="35.0" prefWidth="1213.0">
+            <ToolBar maxWidth="1222.0" prefHeight="45.0" prefWidth="1222.0" styleClass="toolbar" stylesheets="@../../../../style.css">
               <items>
-                <Button fx:id="buittonCliente" mnemonicParsing="false" prefHeight="25.0" prefWidth="237.0" text="Clientes" />
-                  <Button fx:id="buttonIngresos" mnemonicParsing="false" onAction="#Ingresos" prefHeight="25.0" prefWidth="237.0" text="Ingresos" />
-                  <Button fx:id="btnPagos" mnemonicParsing="false" onAction="#Pagos" prefHeight="25.0" prefWidth="237.0" text="Pagos" />
-                  <Button fx:id="btnDietas" mnemonicParsing="false" onAction="#Dietas" prefHeight="25.0" prefWidth="237.0" text="Dietas" />
-                  <Button fx:id="btnRutina" mnemonicParsing="false" onAction="#Rutina" prefHeight="25.0" prefWidth="237.0" text="Rutinas" />
+                <Button fx:id="buittonCliente" mnemonicParsing="false" prefHeight="25.0" prefWidth="237.0" text="Clientes" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold Italic" size="12.0" />
+                     </font></Button>
+                  <Button fx:id="buttonIngresos" mnemonicParsing="false" onAction="#Ingresos" prefHeight="25.0" prefWidth="237.0" text="Ingresos" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold Italic" size="12.0" />
+                     </font></Button>
+                  <Button fx:id="btnPagos" mnemonicParsing="false" onAction="#Pagos" prefHeight="25.0" prefWidth="237.0" text="Pagos" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold Italic" size="12.0" />
+                     </font></Button>
+                  <Button fx:id="btnDietas" mnemonicParsing="false" onAction="#Dietas" prefHeight="25.0" prefWidth="237.0" text="Dietas" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold Italic" size="12.0" />
+                     </font></Button>
+                  <Button fx:id="btnRutina" mnemonicParsing="false" onAction="#Rutina" prefHeight="25.0" prefWidth="237.0" text="Rutinas" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold Italic" size="12.0" />
+                     </font></Button>
               </items>
                <VBox.margin>
                   <Insets left="20.0" right="20.0" />
@@ -83,102 +110,132 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
                <children>
-                  <Label text="Genero">
+                  <Label alignment="CENTER" prefWidth="95.0" text="Genero" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
                   </Label>
                   <ComboBox fx:id="cbGenero" prefHeight="25.0" prefWidth="200.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Label text="Inicio">
+                  <Label alignment="CENTER" prefWidth="95.0" text="Inicio" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
                   </Label>
-                  <TextField fx:id="txtFechaInicio" prefWidth="200.0" />
+                  <TextField fx:id="txtFechaInicio" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
                <children>
-                  <Label text="Apellidos">
+                  <Label alignment="CENTER" prefHeight="23.0" prefWidth="95.0" text="Apellidos" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
                   </Label>
-                  <TextField fx:id="txtApelldos" prefWidth="200.0" />
+                  <TextField fx:id="txtApelldos" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Label text="Peso">
+                  <Label alignment="CENTER" prefWidth="95.0" text="Peso" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
                   </Label>
-                  <TextField fx:id="txtPeso" prefWidth="200.0" />
+                  <TextField fx:id="txtPeso" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="25.0" prefWidth="609.0" GridPane.rowIndex="1">
                <children>
-                  <Label text="Nombre">
+                  <Label alignment="CENTER" prefHeight="23.0" prefWidth="95.0" text="Nombre" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
                   </Label>
-                  <TextField fx:id="txtNombre" prefWidth="200.0" />
+                  <TextField fx:id="txtNombre" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <Label text="Altura">
+                  <Label alignment="CENTER" prefWidth="95.0" text="Altura" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
                   </Label>
-                  <TextField fx:id="txtAltura" prefWidth="200.0" />
+                  <TextField fx:id="txtAltura" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Matricula">
+                  <Label alignment="CENTER" prefWidth="95.0" text="Matricula" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="19.0" />
+                     </font>
                   </Label>
-                  <TextField fx:id="txtMatricula" prefWidth="200.0" />
+                  <TextField fx:id="txtMatricula" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css" />
                </children>
             </HBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <children>
-                  <Label prefHeight="17.0" prefWidth="85.0" text="Observaciones">
+                  <Label prefHeight="23.0" prefWidth="124.0" text="Observaciones" textFill="WHITE">
                      <VBox.margin>
-                        <Insets bottom="10.0" right="380.0" />
+                        <Insets bottom="10.0" right="340.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
                   </Label>
-                  <TextArea fx:id="txtObservacion" maxHeight="107.0" maxWidth="471.0" minHeight="100.0" minWidth="400.0" prefHeight="107.0" prefWidth="471.0" />
+                  <TextArea fx:id="txtObservacion" maxHeight="107.0" maxWidth="471.0" minHeight="80.0" minWidth="400.0" prefHeight="80.0" prefWidth="471.0" />
                </children>
             </VBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="610.0" GridPane.rowIndex="3">
                <children>
-                  <Label text="Edad">
+                  <Label alignment="CENTER" prefWidth="95.0" text="Edad" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
                   </Label>
-                  <TextField fx:id="txtEdad" prefWidth="200.0" />
+                  <TextField fx:id="txtEdad" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
-                  <Label text="Fin">
+                  <Label alignment="CENTER" prefWidth="95.0" text="Fin" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
                   </Label>
-                  <TextField fx:id="txtFechaFin" prefWidth="200.0" />
+                  <TextField fx:id="txtFechaFin" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css" />
                </children>
             </HBox>
          </children>
@@ -190,30 +247,45 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="ButtonCrear" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#CCliente" prefHeight="25.0" prefWidth="140.0" text="Crear Cliente">
+            <Button fx:id="ButtonCrear" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#CCliente" prefHeight="25.0" prefWidth="140.0" text="Crear Cliente" textFill="WHITE">
                <HBox.margin>
                   <Insets right="60.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Calibri Bold Italic" size="12.0" />
+               </font>
             </Button>
-            <Button fx:id="ButtonEditar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ECliente" prefHeight="25.0" prefWidth="140.0" text="Editar Cliente">
+            <Button fx:id="ButtonEditar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ECliente" prefHeight="25.0" prefWidth="140.0" text="Editar Cliente" textFill="WHITE">
                <HBox.margin>
                   <Insets right="60.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Calibri Bold Italic" size="12.0" />
+               </font>
             </Button>
-            <Button fx:id="ButtonEditarRutina" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ERutina" prefHeight="25.0" prefWidth="140.0" text="Rutina">
+            <Button fx:id="ButtonEditarRutina" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ERutina" prefHeight="25.0" prefWidth="140.0" text="Rutina" textFill="WHITE">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
+               <font>
+                  <Font name="Calibri Bold Italic" size="12.0" />
+               </font>
             </Button>
-            <Button fx:id="ButtonEditarDieta" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#EDieta" prefHeight="25.0" prefWidth="140.0" text="Dietas">
+            <Button fx:id="ButtonEditarDieta" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#EDieta" prefHeight="25.0" prefWidth="140.0" text="Dietas" textFill="WHITE">
                <HBox.margin>
                   <Insets left="60.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Calibri Bold Italic" size="12.0" />
+               </font>
             </Button>
-            <Button fx:id="ButtonRenovar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#RMatricula" prefHeight="25.0" prefWidth="140.0" text="Renovar Matricula">
+            <Button fx:id="ButtonRenovar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#RMatricula" prefHeight="25.0" prefWidth="140.0" text="Renovar Matricula" textFill="WHITE">
                <HBox.margin>
                   <Insets left="60.0" />
-               </HBox.margin></Button>
+               </HBox.margin>
+               <font>
+                  <Font name="Calibri Bold Italic" size="12.0" />
+               </font></Button>
          </children>
       </HBox>
    </bottom>

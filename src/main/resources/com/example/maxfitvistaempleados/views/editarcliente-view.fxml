@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -15,8 +16,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maxfitvistaempleados.controller.EditarCliente">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" styleClass="wallpaper2" stylesheets="@../../../../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maxfitvistaempleados.controller.EditarCliente">
    <top>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -29,6 +32,13 @@
                      <HBox.margin>
                         <Insets left="145.0" right="180.0" top="20.0" />
                      </HBox.margin>
+                     <effect>
+                        <Shadow height="0.0" radius="0.0" width="0.0">
+                           <color>
+                              <Color red="1.0" />
+                           </color>
+                        </Shadow>
+                     </effect>
                   </ImageView>
                   <Button fx:id="ButtonSesion" mnemonicParsing="false" onAction="#CerrarSesion" prefHeight="25.0" prefWidth="132.0" text="Cerrar Sesión">
                      <HBox.margin>
@@ -40,7 +50,7 @@
                   <Insets left="360.0" top="20.0" />
                </VBox.margin>
             </HBox>
-            <ToolBar maxWidth="1213.0" prefHeight="35.0" prefWidth="1213.0">
+            <ToolBar maxWidth="1222.0" prefHeight="45.0" prefWidth="1222.0" styleClass="toolbar">
               <items>
                 <Button fx:id="buittonCliente" mnemonicParsing="false" prefHeight="25.0" prefWidth="237.0" text="Clientes" />
                   <Button fx:id="buttonIngresos" mnemonicParsing="false" onAction="#Ingresos" prefHeight="25.0" prefWidth="237.0" text="Ingresos" />
@@ -73,42 +83,54 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Label text="Genero">
+                  <Label alignment="CENTER" prefWidth="78.0" text="Genero" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                     </font>
                   </Label>
                   <ComboBox fx:id="cbGenero" prefHeight="25.0" prefWidth="200.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
                <children>
-                  <Label text="Edad">
+                  <Label alignment="CENTER" prefWidth="78.0" text="Edad" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                     </font>
                   </Label>
-                  <TextField fx:id="txtEdad" prefWidth="200.0" />
+                  <TextField fx:id="txtEdad" prefWidth="200.0" styleClass="textoLogin2" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Label text="Peso">
+                  <Label alignment="CENTER" prefWidth="78.0" text="Peso" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                     </font>
                   </Label>
-                  <TextField fx:id="txtPeso" prefWidth="200.0" />
+                  <TextField fx:id="txtPeso" prefWidth="200.0" styleClass="textoLogin2" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="25.0" prefWidth="609.0" GridPane.rowIndex="1">
                <children>
-                  <Label text="Apellidos">
+                  <Label alignment="CENTER" text="Apellidos" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                     </font>
                   </Label>
-                  <TextField fx:id="txtApelldos" prefHeight="25.0" prefWidth="209.0">
+                  <TextField fx:id="txtApelldos" prefHeight="25.0" prefWidth="209.0" styleClass="textoLogin2">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin></TextField>
@@ -116,43 +138,55 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <Label text="Altura">
+                  <Label alignment="CENTER" prefWidth="78.0" text="Altura" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                     </font>
                   </Label>
-                  <TextField fx:id="txtAltura" prefWidth="200.0" />
+                  <TextField fx:id="txtAltura" prefWidth="200.0" styleClass="textoLogin2" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Nombre">
+                  <Label alignment="CENTER" prefWidth="78.0" text="Nombre" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                     </font>
                   </Label>
-                  <TextField fx:id="txtNombre" prefHeight="25.0" prefWidth="206.0" />
+                  <TextField fx:id="txtNombre" prefHeight="25.0" prefWidth="206.0" styleClass="textoLogin2" />
                </children>
             </HBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
-                  <Label prefHeight="17.0" prefWidth="85.0" text="Observaciones">
+                  <Label prefHeight="23.0" prefWidth="132.0" text="Observaciones" textFill="WHITE">
                      <VBox.margin>
-                        <Insets bottom="10.0" right="380.0" />
+                        <Insets bottom="10.0" right="340.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                     </font>
                   </Label>
                   <TextArea fx:id="txtObservacion" maxHeight="107.0" maxWidth="471.0" minHeight="100.0" minWidth="400.0" prefHeight="107.0" prefWidth="471.0" />
                </children>
             </VBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
                <children>
-                  <Label text="Correo">
+                  <Label alignment="CENTER" prefWidth="78.0" text="Correo" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                     </font>
                   </Label>
-                  <TextField fx:id="txtCorreo" prefHeight="25.0" prefWidth="206.0" />
+                  <TextField fx:id="txtCorreo" prefHeight="25.0" prefWidth="206.0" styleClass="textoLogin2" />
                </children>
             </HBox>
          </children>

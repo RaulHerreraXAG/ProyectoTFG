@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -14,9 +15,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maxfitvistaempleados.controller.CrearRutinaMartes">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" styleClass="wallpaper2" stylesheets="@../../../../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.maxfitvistaempleados.controller.CrearRutinaMartes">
    <top>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -29,24 +31,49 @@
                      <HBox.margin>
                         <Insets left="145.0" right="180.0" top="10.0" />
                      </HBox.margin>
+                     <effect>
+                        <Shadow height="0.0" radius="0.0" width="0.0">
+                           <color>
+                              <Color red="1.0" />
+                           </color>
+                        </Shadow>
+                     </effect>
                   </ImageView>
                   <Button fx:id="ButtonSesion" mnemonicParsing="false" onAction="#CerrarSesion" prefHeight="25.0" prefWidth="132.0" text="Cerrar Sesión">
                      <HBox.margin>
                         <Insets bottom="10.0" left="225.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Calibri Italic" size="12.0" />
+                     </font>
                   </Button>
                </children>
                <VBox.margin>
                   <Insets left="360.0" top="20.0" />
                </VBox.margin>
             </HBox>
-            <ToolBar maxWidth="1213.0" prefHeight="35.0" prefWidth="1213.0">
+            <ToolBar maxWidth="1222.0" prefHeight="45.0" prefWidth="1222.0" styleClass="toolbar">
               <items>
-                <Button fx:id="buittonCliente" mnemonicParsing="false" onAction="#Clientes" prefHeight="25.0" prefWidth="237.0" text="Clientes" />
-                  <Button fx:id="buttonIngresos" mnemonicParsing="false" onAction="#Ingresos" prefHeight="25.0" prefWidth="237.0" text="Ingresos" />
-                  <Button fx:id="btnPagos" mnemonicParsing="false" onAction="#Pagos" prefHeight="25.0" prefWidth="237.0" text="Pagos" />
-                  <Button fx:id="btnDietas" mnemonicParsing="false" onAction="#Dietas" prefHeight="25.0" prefWidth="237.0" text="Dietas" />
-                  <Button fx:id="btnRutina" mnemonicParsing="false" onAction="#Rutina" prefHeight="25.0" prefWidth="237.0" text="Rutinas" />
+                <Button fx:id="buittonCliente" mnemonicParsing="false" onAction="#Clientes" prefHeight="25.0" prefWidth="237.0" text="Clientes">
+                     <font>
+                        <Font name="Calibri Italic" size="12.0" />
+                     </font></Button>
+                  <Button fx:id="buttonIngresos" mnemonicParsing="false" onAction="#Ingresos" prefHeight="25.0" prefWidth="237.0" text="Ingresos">
+                     <font>
+                        <Font name="Calibri Italic" size="12.0" />
+                     </font></Button>
+                  <Button fx:id="btnPagos" mnemonicParsing="false" onAction="#Pagos" prefHeight="25.0" prefWidth="237.0" text="Pagos">
+                     <font>
+                        <Font name="Calibri Italic" size="12.0" />
+                     </font></Button>
+                  <Button fx:id="btnDietas" mnemonicParsing="false" onAction="#Dietas" prefHeight="25.0" prefWidth="237.0" text="Dietas">
+                     <font>
+                        <Font name="Calibri Italic" size="12.0" />
+                     </font></Button>
+                  <Button fx:id="btnRutina" mnemonicParsing="false" onAction="#Rutina" prefHeight="25.0" prefWidth="237.0" text="Rutinas">
+                     <font>
+                        <Font name="Calibri Italic" size="12.0" />
+                     </font></Button>
               </items>
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" />
@@ -63,14 +90,26 @@
          <children>
             <Button fx:id="ButtonFR" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#FR" prefHeight="25.0" prefWidth="140.0" text="Finalizar Rutina">
                <HBox.margin>
-                  <Insets right="60.0" />
+                  <Insets right="60.0" top="30.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Calibri Italic" size="12.0" />
+               </font>
             </Button>
-            <Button fx:id="ButtonSD" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#SiguienteDia" prefHeight="25.0" prefWidth="140.0" text="Siguente Día" />
+            <Button fx:id="ButtonSD" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#SiguienteDia" prefHeight="25.0" prefWidth="140.0" text="Siguente Día">
+               <font>
+                  <Font name="Calibri Italic" size="12.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="30.0" />
+               </HBox.margin></Button>
             <Button fx:id="ButtonAtras" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#VolverAtras" prefHeight="25.0" prefWidth="140.0" text="Volver Atrás">
                <HBox.margin>
-                  <Insets left="60.0" />
+                  <Insets left="60.0" top="30.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Calibri Italic" size="12.0" />
+               </font>
             </Button>
          </children>
       </HBox>
@@ -78,33 +117,36 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="lblDIa" alignment="CENTER" text="Label">
+            <Label fx:id="lblDIa" alignment="CENTER" text="Label" textFill="WHITE">
                <font>
-                  <Font size="26.0" />
+                  <Font name="Calibri Italic" size="26.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
             </Label>
-            <GridPane minHeight="350.0" prefHeight="400.0" prefWidth="1220.0">
+            <GridPane minHeight="450.0" prefHeight="450.0" prefWidth="1220.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints maxHeight="185.0" minHeight="10.0" prefHeight="129.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="188.0" minHeight="10.0" prefHeight="121.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="188.0" minHeight="10.0" prefHeight="121.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="188.0" minHeight="10.0" prefHeight="122.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="185.0" minHeight="10.0" prefHeight="112.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="188.0" minHeight="10.0" prefHeight="112.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="188.0" minHeight="10.0" prefHeight="112.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="188.0" minHeight="10.0" prefHeight="112.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <VBox GridPane.rowIndex="3">
                      <children>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
                               <ComboBox fx:id="cbEjercicio4" prefHeight="25.0" prefWidth="159.0" />
@@ -112,25 +154,31 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtRepe4" />
+                              <TextField fx:id="txtRepe4" styleClass="textoLogin2" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series" textFill="WHITE">
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </HBox.margin>
                               </Label>
-                              <TextField fx:id="txtSeries4" />
+                              <TextField fx:id="txtSeries4" styleClass="textoLogin2">
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </HBox.margin></TextField>
                            </children>
                         </HBox>
                      </children>
@@ -139,12 +187,12 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
                               <ComboBox fx:id="cbEjercicio1" prefHeight="25.0" prefWidth="159.0" />
@@ -152,25 +200,31 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtRepe" />
+                              <TextField fx:id="txtRepe" styleClass="textoLogin2" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series" textFill="WHITE">
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </HBox.margin>
                               </Label>
-                              <TextField fx:id="txtSeries1" />
+                              <TextField fx:id="txtSeries1" styleClass="textoLogin2">
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </HBox.margin></TextField>
                            </children>
                         </HBox>
                      </children>
@@ -179,12 +233,12 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
                               <ComboBox fx:id="cbEjercicio2" prefHeight="25.0" prefWidth="159.0" />
@@ -192,25 +246,31 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtRepe2" />
+                              <TextField fx:id="txtRepe2" styleClass="textoLogin2" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series" textFill="WHITE">
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </HBox.margin>
                               </Label>
-                              <TextField fx:id="txtSeries2" />
+                              <TextField fx:id="txtSeries2" styleClass="textoLogin2">
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </HBox.margin></TextField>
                            </children>
                         </HBox>
                      </children>
@@ -219,12 +279,12 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
                               <ComboBox fx:id="cbEjercicio3" prefHeight="25.0" prefWidth="159.0" />
@@ -232,25 +292,25 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtRepe3" />
+                              <TextField fx:id="txtRepe3" styleClass="textoLogin2" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series" textFill="WHITE">
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtSeries3" />
+                              <TextField fx:id="txtSeries3" styleClass="textoLogin2" />
                            </children>
                         </HBox>
                      </children>
@@ -259,12 +319,12 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
                               <ComboBox fx:id="cbEjercicio5" prefHeight="25.0" prefWidth="159.0" />
@@ -272,25 +332,31 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtRepe5" />
+                              <TextField fx:id="txtRepe5" styleClass="textoLogin2" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series" textFill="WHITE">
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </HBox.margin>
                               </Label>
-                              <TextField fx:id="txtSeries5" />
+                              <TextField fx:id="txtSeries5" styleClass="textoLogin2">
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </HBox.margin></TextField>
                            </children>
                         </HBox>
                      </children>
@@ -299,12 +365,12 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
                               <ComboBox fx:id="cbEjercicio6" prefHeight="25.0" prefWidth="159.0" />
@@ -312,25 +378,31 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtRepe6" />
+                              <TextField fx:id="txtRepe6" styleClass="textoLogin2" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series" textFill="WHITE">
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </HBox.margin>
                               </Label>
-                              <TextField fx:id="txtSeries6" />
+                              <TextField fx:id="txtSeries6" styleClass="textoLogin2">
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </HBox.margin></TextField>
                            </children>
                         </HBox>
                      </children>
@@ -339,12 +411,12 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
                               <ComboBox fx:id="cbEjercicio7" prefHeight="25.0" prefWidth="159.0" />
@@ -352,25 +424,31 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtRepe7" />
+                              <TextField fx:id="txtRepe7" styleClass="textoLogin2" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series" textFill="WHITE">
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </HBox.margin>
                               </Label>
-                              <TextField fx:id="txtSeries7" />
+                              <TextField fx:id="txtSeries7" styleClass="textoLogin2">
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </HBox.margin></TextField>
                            </children>
                         </HBox>
                      </children>
@@ -379,12 +457,12 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Ejercicios" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
                               <ComboBox fx:id="cbEjercicio8" prefHeight="25.0" prefWidth="159.0" />
@@ -392,25 +470,31 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Repeticiones" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtRepe8" />
+                              <TextField fx:id="txtRepe8" styleClass="textoLogin2" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="140.0" text="Series" textFill="WHITE">
                                  <font>
-                                    <Font name="Bell MT" size="15.0" />
+                                    <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </HBox.margin>
                               </Label>
-                              <TextField fx:id="txtSeries8" />
+                              <TextField fx:id="txtSeries8" styleClass="textoLogin2">
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </HBox.margin></TextField>
                            </children>
                         </HBox>
                      </children>

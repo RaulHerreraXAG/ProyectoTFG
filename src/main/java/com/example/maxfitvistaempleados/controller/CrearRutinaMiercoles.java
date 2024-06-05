@@ -11,10 +11,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.util.StringConverter;
 
 import java.io.IOException;
 import java.net.URL;
@@ -147,37 +145,115 @@ public class CrearRutinaMiercoles implements Initializable {
         RutinaDAO rutinaDAO = new RutinaDAO();
         Clientes cliente = Sesion.getCliente();
 
-        // Obtener el ejercicio seleccionado en el ComboBox
+        // Obtener los ejercicios seleccionados en los ComboBoxes
         Ejercicios ejercicioSeleccionado = cbEjercicio1.getValue();
+        Ejercicios ejercicioSeleccionado2 = cbEjercicio2.getValue();
+        Ejercicios ejercicioSeleccionado3 = cbEjercicio3.getValue();
+        Ejercicios ejercicioSeleccionado4 = cbEjercicio4.getValue();
+        Ejercicios ejercicioSeleccionado5 = cbEjercicio5.getValue();
+        Ejercicios ejercicioSeleccionado6 = cbEjercicio6.getValue();
+        Ejercicios ejercicioSeleccionado7 = cbEjercicio7.getValue();
+        Ejercicios ejercicioSeleccionado8 = cbEjercicio8.getValue();
 
-// Verificar si se seleccionó un ejercicio
-        if (ejercicioSeleccionado == null) {
-            // Manejo del caso cuando no se ha seleccionado ningún ejercicio
-            System.out.println("Seleccione un ejercicio.");
+        // Verificar si se seleccionaron los primeros cinco ejercicios
+        if (ejercicioSeleccionado == null || ejercicioSeleccionado2 == null || ejercicioSeleccionado3 == null ||
+                ejercicioSeleccionado4 == null || ejercicioSeleccionado5 == null) {
+            showAlert("Error", "Seleccione al menos los primeros cinco ejercicios.");
             return;
         }
 
-// Obtener el ID del ejercicio seleccionado
-        Integer idEjercicio = ejercicioSeleccionado.getId();
+        // Verificar que los campos de repeticiones y series no estén vacíos para los primeros cinco ejercicios
+        if (txtRepe.getText().isEmpty() || txtSeries1.getText().isEmpty() ||
+                txtRepe2.getText().isEmpty() || txtSeries2.getText().isEmpty() ||
+                txtRepe3.getText().isEmpty() || txtSeries3.getText().isEmpty() ||
+                txtRepe4.getText().isEmpty() || txtSeries4.getText().isEmpty() ||
+                txtRepe5.getText().isEmpty() || txtSeries5.getText().isEmpty()) {
+            showAlert("Error", "Por favor, complete todos los campos de repeticiones y series para los primeros cinco ejercicios.");
+            return;
+        }
 
+        try {
+            // Crear una nueva instancia de Rutina y establecer sus atributos
+            Rutina nuevaRutina1 = new Rutina();
+            nuevaRutina1.setClientes(cliente);
+            nuevaRutina1.setDia(lblDIa.getText());
+            nuevaRutina1.setRepeticiones(Integer.valueOf(txtRepe.getText()));
+            nuevaRutina1.setSeries(Integer.valueOf(txtSeries1.getText()));
+            nuevaRutina1.setEjercicios(ejercicioSeleccionado);
 
+            Rutina nuevaRutina2 = new Rutina();
+            nuevaRutina2.setClientes(cliente);
+            nuevaRutina2.setDia(lblDIa.getText());
+            nuevaRutina2.setRepeticiones(Integer.valueOf(txtRepe2.getText()));
+            nuevaRutina2.setSeries(Integer.valueOf(txtSeries2.getText()));
+            nuevaRutina2.setEjercicios(ejercicioSeleccionado2);
 
+            Rutina nuevaRutina3 = new Rutina();
+            nuevaRutina3.setClientes(cliente);
+            nuevaRutina3.setDia(lblDIa.getText());
+            nuevaRutina3.setRepeticiones(Integer.valueOf(txtRepe3.getText()));
+            nuevaRutina3.setSeries(Integer.valueOf(txtSeries3.getText()));
+            nuevaRutina3.setEjercicios(ejercicioSeleccionado3);
 
-        // Crear una nueva instancia de Rutina y establecer sus atributos
-        Rutina nuevaRutina = new Rutina();
-        nuevaRutina.setClientes(cliente);
-        nuevaRutina.setDia(lblDIa.getText());
-        nuevaRutina.setRepeticiones(Integer.valueOf(txtRepe.getText()));
-        nuevaRutina.setSeries(Integer.valueOf(txtSeries1.getText()));
-        nuevaRutina.setEjercicios(ejercicioSeleccionado); // Establecer el ejercicio en la rutina
+            Rutina nuevaRutina4 = new Rutina();
+            nuevaRutina4.setClientes(cliente);
+            nuevaRutina4.setDia(lblDIa.getText());
+            nuevaRutina4.setRepeticiones(Integer.valueOf(txtRepe4.getText()));
+            nuevaRutina4.setSeries(Integer.valueOf(txtSeries4.getText()));
+            nuevaRutina4.setEjercicios(ejercicioSeleccionado4);
 
-        // Guardar la nueva rutina en la base de datos
-        rutinaDAO.save(nuevaRutina);
-        Sesion.setRutina(nuevaRutina);
+            Rutina nuevaRutina5 = new Rutina();
+            nuevaRutina5.setClientes(cliente);
+            nuevaRutina5.setDia(lblDIa.getText());
+            nuevaRutina5.setRepeticiones(Integer.valueOf(txtRepe5.getText()));
+            nuevaRutina5.setSeries(Integer.valueOf(txtSeries5.getText()));
+            nuevaRutina5.setEjercicios(ejercicioSeleccionado5);
 
-        if(nuevaRutina != null){
-            // Cambiar a la siguiente escena
-            Main.changeScene("CR4-view.fxml", "Rutina Jueves");
+            // Guardar la nueva rutina en la base de datos para los primeros cinco ejercicios
+            rutinaDAO.save(nuevaRutina1);
+            rutinaDAO.save(nuevaRutina2);
+            rutinaDAO.save(nuevaRutina3);
+            rutinaDAO.save(nuevaRutina4);
+            rutinaDAO.save(nuevaRutina5);
+
+            // Crear y guardar rutinas para los ejercicios opcionales si están completos
+            if (!txtRepe6.getText().isEmpty() && !txtSeries6.getText().isEmpty() && ejercicioSeleccionado6 != null) {
+                Rutina nuevaRutina6 = new Rutina();
+                nuevaRutina6.setClientes(cliente);
+                nuevaRutina6.setDia(lblDIa.getText());
+                nuevaRutina6.setRepeticiones(Integer.valueOf(txtRepe6.getText()));
+                nuevaRutina6.setSeries(Integer.valueOf(txtSeries6.getText()));
+                nuevaRutina6.setEjercicios(ejercicioSeleccionado6);
+                rutinaDAO.save(nuevaRutina6);
+            }
+
+            if (!txtRepe7.getText().isEmpty() && !txtSeries7.getText().isEmpty() && ejercicioSeleccionado7 != null) {
+                Rutina nuevaRutina7 = new Rutina();
+                nuevaRutina7.setClientes(cliente);
+                nuevaRutina7.setDia(lblDIa.getText());
+                nuevaRutina7.setRepeticiones(Integer.valueOf(txtRepe7.getText()));
+                nuevaRutina7.setSeries(Integer.valueOf(txtSeries7.getText()));
+                nuevaRutina7.setEjercicios(ejercicioSeleccionado7);
+                rutinaDAO.save(nuevaRutina7);
+            }
+
+            if (!txtRepe8.getText().isEmpty() && !txtSeries8.getText().isEmpty() && ejercicioSeleccionado8 != null) {
+                Rutina nuevaRutina8 = new Rutina();
+                nuevaRutina8.setClientes(cliente);
+                nuevaRutina8.setDia(lblDIa.getText());
+                nuevaRutina8.setRepeticiones(Integer.valueOf(txtRepe8.getText()));
+                nuevaRutina8.setSeries(Integer.valueOf(txtSeries8.getText()));
+                nuevaRutina8.setEjercicios(ejercicioSeleccionado8);
+                rutinaDAO.save(nuevaRutina8);
+            }
+
+            // Cambiar de escena después de guardar todas las rutinas
+            Main.changeScene("RutinaXcliente-view.fxml", "Rutina");
+        } catch (NumberFormatException e) {
+            showAlert("Error", "Por favor, ingrese valores numéricos válidos para repeticiones y series.");
+        } catch (Exception e) {
+            showAlert("Error", "Ha ocurrido un error al guardar la rutina. Intente nuevamente.");
+            e.printStackTrace();
         }
     }
 
@@ -186,41 +262,150 @@ public class CrearRutinaMiercoles implements Initializable {
         RutinaDAO rutinaDAO = new RutinaDAO();
         Clientes cliente = Sesion.getCliente();
 
-        // Obtener el ejercicio seleccionado en el ComboBox
+        // Obtener los ejercicios seleccionados en los ComboBoxes
         Ejercicios ejercicioSeleccionado = cbEjercicio1.getValue();
+        Ejercicios ejercicioSeleccionado2 = cbEjercicio2.getValue();
+        Ejercicios ejercicioSeleccionado3 = cbEjercicio3.getValue();
+        Ejercicios ejercicioSeleccionado4 = cbEjercicio4.getValue();
+        Ejercicios ejercicioSeleccionado5 = cbEjercicio5.getValue();
+        Ejercicios ejercicioSeleccionado6 = cbEjercicio6.getValue();
+        Ejercicios ejercicioSeleccionado7 = cbEjercicio7.getValue();
+        Ejercicios ejercicioSeleccionado8 = cbEjercicio8.getValue();
 
-// Verificar si se seleccionó un ejercicio
-        if (ejercicioSeleccionado == null) {
-            // Manejo del caso cuando no se ha seleccionado ningún ejercicio
-            System.out.println("Seleccione un ejercicio.");
+        // Verificar si se seleccionaron los primeros cinco ejercicios
+        if (ejercicioSeleccionado == null || ejercicioSeleccionado2 == null || ejercicioSeleccionado3 == null ||
+                ejercicioSeleccionado4 == null || ejercicioSeleccionado5 == null) {
+            showAlert("Error", "Seleccione al menos los primeros cinco ejercicios.");
             return;
         }
 
-// Obtener el ID del ejercicio seleccionado
-        Integer idEjercicio = ejercicioSeleccionado.getId();
+        // Verificar que los campos de repeticiones y series no estén vacíos para los primeros cinco ejercicios
+        if (txtRepe.getText().isEmpty() || txtSeries1.getText().isEmpty() ||
+                txtRepe2.getText().isEmpty() || txtSeries2.getText().isEmpty() ||
+                txtRepe3.getText().isEmpty() || txtSeries3.getText().isEmpty() ||
+                txtRepe4.getText().isEmpty() || txtSeries4.getText().isEmpty() ||
+                txtRepe5.getText().isEmpty() || txtSeries5.getText().isEmpty()) {
+            showAlert("Error", "Por favor, complete todos los campos de repeticiones y series para los primeros cinco ejercicios.");
+            return;
+        }
 
+        try {
+            // Crear una nueva instancia de Rutina y establecer sus atributos
+            Rutina nuevaRutina1 = new Rutina();
+            nuevaRutina1.setClientes(cliente);
+            nuevaRutina1.setDia(lblDIa.getText());
+            nuevaRutina1.setRepeticiones(Integer.valueOf(txtRepe.getText()));
+            nuevaRutina1.setSeries(Integer.valueOf(txtSeries1.getText()));
+            nuevaRutina1.setEjercicios(ejercicioSeleccionado);
 
+            Rutina nuevaRutina2 = new Rutina();
+            nuevaRutina2.setClientes(cliente);
+            nuevaRutina2.setDia(lblDIa.getText());
+            nuevaRutina2.setRepeticiones(Integer.valueOf(txtRepe2.getText()));
+            nuevaRutina2.setSeries(Integer.valueOf(txtSeries2.getText()));
+            nuevaRutina2.setEjercicios(ejercicioSeleccionado2);
 
+            Rutina nuevaRutina3 = new Rutina();
+            nuevaRutina3.setClientes(cliente);
+            nuevaRutina3.setDia(lblDIa.getText());
+            nuevaRutina3.setRepeticiones(Integer.valueOf(txtRepe3.getText()));
+            nuevaRutina3.setSeries(Integer.valueOf(txtSeries3.getText()));
+            nuevaRutina3.setEjercicios(ejercicioSeleccionado3);
 
-        // Crear una nueva instancia de Rutina y establecer sus atributos
-        Rutina nuevaRutina = new Rutina();
-        nuevaRutina.setClientes(cliente);
-        nuevaRutina.setDia(lblDIa.getText());
-        nuevaRutina.setRepeticiones(Integer.valueOf(txtRepe.getText()));
-        nuevaRutina.setSeries(Integer.valueOf(txtSeries1.getText()));
-        nuevaRutina.setEjercicios(ejercicioSeleccionado); // Establecer el ejercicio en la rutina
+            Rutina nuevaRutina4 = new Rutina();
+            nuevaRutina4.setClientes(cliente);
+            nuevaRutina4.setDia(lblDIa.getText());
+            nuevaRutina4.setRepeticiones(Integer.valueOf(txtRepe4.getText()));
+            nuevaRutina4.setSeries(Integer.valueOf(txtSeries4.getText()));
+            nuevaRutina4.setEjercicios(ejercicioSeleccionado4);
 
-        // Guardar la nueva rutina en la base de datos
-        rutinaDAO.save(nuevaRutina);
-        Sesion.setRutina(nuevaRutina);
+            Rutina nuevaRutina5 = new Rutina();
+            nuevaRutina5.setClientes(cliente);
+            nuevaRutina5.setDia(lblDIa.getText());
+            nuevaRutina5.setRepeticiones(Integer.valueOf(txtRepe5.getText()));
+            nuevaRutina5.setSeries(Integer.valueOf(txtSeries5.getText()));
+            nuevaRutina5.setEjercicios(ejercicioSeleccionado5);
 
-        // Cambiar a la siguiente escena
-        Main.changeScene("RutinaXcliente-view.fxml", "Rutina");
+            // Guardar la nueva rutina en la base de datos para los primeros cinco ejercicios
+            rutinaDAO.save(nuevaRutina1);
+            rutinaDAO.save(nuevaRutina2);
+            rutinaDAO.save(nuevaRutina3);
+            rutinaDAO.save(nuevaRutina4);
+            rutinaDAO.save(nuevaRutina5);
+
+            // Crear y guardar rutinas para los ejercicios opcionales si están completos
+            if (!txtRepe6.getText().isEmpty() && !txtSeries6.getText().isEmpty() && ejercicioSeleccionado6 != null) {
+                Rutina nuevaRutina6 = new Rutina();
+                nuevaRutina6.setClientes(cliente);
+                nuevaRutina6.setDia(lblDIa.getText());
+                nuevaRutina6.setRepeticiones(Integer.valueOf(txtRepe6.getText()));
+                nuevaRutina6.setSeries(Integer.valueOf(txtSeries6.getText()));
+                nuevaRutina6.setEjercicios(ejercicioSeleccionado6);
+                rutinaDAO.save(nuevaRutina6);
+            }
+
+            if (!txtRepe7.getText().isEmpty() && !txtSeries7.getText().isEmpty() && ejercicioSeleccionado7 != null) {
+                Rutina nuevaRutina7 = new Rutina();
+                nuevaRutina7.setClientes(cliente);
+                nuevaRutina7.setDia(lblDIa.getText());
+                nuevaRutina7.setRepeticiones(Integer.valueOf(txtRepe7.getText()));
+                nuevaRutina7.setSeries(Integer.valueOf(txtSeries7.getText()));
+                nuevaRutina7.setEjercicios(ejercicioSeleccionado7);
+                rutinaDAO.save(nuevaRutina7);
+            }
+
+            if (!txtRepe8.getText().isEmpty() && !txtSeries8.getText().isEmpty() && ejercicioSeleccionado8 != null) {
+                Rutina nuevaRutina8 = new Rutina();
+                nuevaRutina8.setClientes(cliente);
+                nuevaRutina8.setDia(lblDIa.getText());
+                nuevaRutina8.setRepeticiones(Integer.valueOf(txtRepe8.getText()));
+                nuevaRutina8.setSeries(Integer.valueOf(txtSeries8.getText()));
+                nuevaRutina8.setEjercicios(ejercicioSeleccionado8);
+                rutinaDAO.save(nuevaRutina8);
+            }
+
+            // Cambiar de escena después de guardar todas las rutinas
+            Main.changeScene("CR4-view.fxml", "Rutina Jueves");
+        } catch (NumberFormatException e) {
+            showAlert("Error", "Por favor, ingrese valores numéricos válidos para repeticiones y series.");
+        } catch (Exception e) {
+            showAlert("Error", "Ha ocurrido un error al guardar la rutina. Intente nuevamente.");
+            e.printStackTrace();
+        }
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    private void setComboBoxItems(ComboBox<Ejercicios> comboBox) {
+        comboBox.setItems(ejerciciosObservableList);
+        comboBox.setConverter(new StringConverter<Ejercicios>() {
+            @Override
+            public String toString(Ejercicios object) {
+                if (object != null) {
+                    return object.getNombre();
+                } else {
+                    return ""; // or any default string value you want to return when object is null
+                }
+            }
+
+            @Override
+            public Ejercicios fromString(String string) {
+                return comboBox.getItems().stream().filter(ap ->
+                        ap.getNombre().equals(string)).findFirst().orElse(null);
+            }
+        });
     }
 
 
     @javafx.fxml.FXML
-    public void VolverAtras(ActionEvent actionEvent) {
+    public void VolverAtras(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("CR2-view.fxml", "Rutina Martes");
     }
 
 

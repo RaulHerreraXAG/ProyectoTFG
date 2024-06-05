@@ -12,7 +12,16 @@ import javafx.scene.control.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.scene.control.ListCell;
+
+import javafx.scene.control.ChoiceDialog;
+import javafx.util.Callback;
+
+import java.util.List;
+import java.util.Optional;
 
 
 public class EmpleadosClientes implements Initializable {
@@ -84,42 +93,122 @@ public class EmpleadosClientes implements Initializable {
 
     }
 
+    public class ClienteListCell extends ListCell<Clientes> {
+        @Override
+        protected void updateItem(Clientes cliente, boolean empty) {
+            super.updateItem(cliente, empty);
+            if (empty || cliente == null) {
+                setText(null);
+            } else {
+                setText(cliente.getNombre() + " " + cliente.getApellidos());
+            }
+        }
+    }
+
+
+
+    public Optional<Clientes> mostrarSeleccionCliente(List<Clientes> clientes) {
+        ChoiceDialog<Clientes> dialog = new ChoiceDialog<>(clientes.get(0), clientes);
+        dialog.setTitle("Selección de Cliente");
+        dialog.setHeaderText("Múltiples coincidencias encontradas");
+        dialog.setContentText("Selecciona el cliente:");
+
+        // Obtener el ComboBox del diálogo y aplicar la ListCell personalizada
+        ComboBox<Clientes> comboBox = (ComboBox<Clientes>) dialog.getDialogPane().lookup(".combo-box");
+        if (comboBox != null) {
+            comboBox.setCellFactory(new Callback<ListView<Clientes>, ListCell<Clientes>>() {
+                @Override
+                public ListCell<Clientes> call(ListView<Clientes> param) {
+                    return new ClienteListCell();
+                }
+            });
+            comboBox.setButtonCell(new ClienteListCell());
+        }
+
+        // Cargar y aplicar el archivo CSS al DialogPane del ChoiceDialog
+        DialogPane dialogPane = dialog.getDialogPane();
+        URL cssResource = getClass().getResource("/style.css");
+        if (cssResource != null) {
+            dialogPane.getStylesheets().add(cssResource.toExternalForm());
+            dialogPane.getStyleClass().add("custom-choice-dialog");
+        } else {
+            System.err.println("Resource not found: /style.css");
+        }
+
+        return dialog.showAndWait();
+    }
+
+
+
     @javafx.fxml.FXML
     public void Busquedad(ActionEvent actionEvent) {
         String textoBusqueda = txtBusqueda.getText().trim().toLowerCase();
         ArrayList<Clientes> clientesList = clienteDAO.getAll();
-        boolean encontrado = false;
+        ArrayList<Clientes> clientesCoincidencia = new ArrayList<>();
 
         for (Clientes cliente : clientesList) {
             String nombreCompleto = cliente.getNombre().toLowerCase() + " " + cliente.getApellidos().toLowerCase();
-            if (nombreCompleto.equals(textoBusqueda)) {
-                // Configurar el cliente encontrado en la sesión
-                Sesion.setCliente(cliente);
-
-                // Establecer los datos del cliente en los campos de texto
-                txtNombre.setText(cliente.getNombre());
-                txtApelldos.setText(cliente.getApellidos());
-                cbGenero.setValue(cliente.getGenero().toString());
-                txtFechaInicio.setText(String.valueOf(cliente.getFechaInicio()));
-                txtEdad.setText(String.valueOf(cliente.getEdad()));
-                txtAltura.setText(String.valueOf(cliente.getAltura()));
-                txtPeso.setText(String.valueOf(cliente.getPeso()));
-                txtObservacion.setText(cliente.getObservacion());
-                txtMatricula.setText(String.valueOf(cliente.getMatricula()));
-                txtFechaFin.setText(String.valueOf(cliente.getFechaFin()));
-
-                // Marcar que se encontró el cliente
-                encontrado = true;
-                break;
+            if (nombreCompleto.contains(textoBusqueda)) {
+                clientesCoincidencia.add(cliente);
             }
         }
 
-        if (!encontrado) {
-            // Si no se encuentra ninguna coincidencia, muestra un mensaje de error y limpia todos los campos
-            showAlert("Error", "No se encontraron coincidencias para el nombre completo proporcionado.");
-            limpiarCampos();
+        if (clientesCoincidencia.size() == 1) {
+            // Si hay solo una coincidencia, usar ese cliente
+            Clientes cliente = clientesCoincidencia.get(0);
+            configurarCliente(cliente);
+        } else if (clientesCoincidencia.size() > 1) {
+            // Si hay más de una coincidencia, mostrar el diálogo de selección
+            Optional<Clientes> resultado = mostrarSeleccionCliente(clientesCoincidencia);
+            resultado.ifPresent(this::configurarCliente);
+        } else {
+            // No se encontró ninguna coincidencia
+            // Aquí puedes mostrar un mensaje de error o realizar otra acción
+            mostrarMensajeError("No se encontró ningún cliente con ese nombre.");
         }
     }
+
+    private void configurarCliente(Clientes cliente) {
+        // Configurar el cliente encontrado en la sesión
+        Sesion.setCliente(cliente);
+
+        // Establecer los datos del cliente en los campos de texto
+        txtNombre.setText(cliente.getNombre());
+        txtApelldos.setText(cliente.getApellidos());
+        cbGenero.setValue(cliente.getGenero().toString());
+        txtFechaInicio.setText(String.valueOf(cliente.getFechaInicio()));
+        txtEdad.setText(String.valueOf(cliente.getEdad()) + " Años");
+        txtAltura.setText(String.valueOf(cliente.getAltura()) + " M");
+        txtPeso.setText(String.valueOf(cliente.getPeso()) + " Kg");
+        txtObservacion.setText(cliente.getObservacion());
+        txtMatricula.setText(String.valueOf(cliente.getMatricula()));
+        txtFechaFin.setText(String.valueOf(cliente.getFechaFin()));
+    }
+
+    public void mostrarMensajeError(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("Se ha producido un error");
+        alert.setContentText(mensaje);
+
+        // Apply CSS styles
+        DialogPane dialogPane = alert.getDialogPane();
+        URL cssResource = getClass().getResource("style.css");
+        if (cssResource != null) {
+            System.out.println("Resource found: " + cssResource);
+            dialogPane.getStylesheets().add(cssResource.toExternalForm());
+            dialogPane.getStyleClass().add("custom-alert");
+        } else {
+            System.err.println("Resource not found: /styles.css ahora");
+        }
+
+        alert.showAndWait();
+    }
+
+
+
+
+
 
 
     private void showAlert(String title, String content) {

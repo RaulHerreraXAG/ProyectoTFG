@@ -53,12 +53,12 @@
                   <Font name="Georgia" size="18.0" />
                </font>
             </PasswordField>
-            <Button fx:id="btnIniciar" mnemonicParsing="false" onAction="#login" prefHeight="37.0" prefWidth="156.0" text="Iniciar Sesión" textFill="WHITE">
+            <Button fx:id="btnIniciar" mnemonicParsing="false" onAction="#login" prefHeight="28.0" prefWidth="136.0" text="Iniciar Sesión" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="25.0" top="75.0" />
                </VBox.margin>
                <font>
-                  <Font name="Georgia Italic" size="12.0" />
+                  <Font name="Georgia Italic" size="10.0" />
                </font>
             </Button>
             <Label fx:id="info">
