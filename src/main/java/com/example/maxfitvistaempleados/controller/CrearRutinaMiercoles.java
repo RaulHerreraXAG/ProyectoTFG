@@ -112,7 +112,7 @@ public class CrearRutinaMiercoles implements Initializable {
 
     @javafx.fxml.FXML
     public void CerrarSesion(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("login-view.fxml","Inicio Sesión");
+        Main.login("Inicio Sesión");
     }
 
     @javafx.fxml.FXML
