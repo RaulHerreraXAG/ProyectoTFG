@@ -4,6 +4,8 @@ import com.example.maxfitvistaempleados.Main;
 import com.example.maxfitvistaempleados.Sesion;
 import com.example.maxfitvistaempleados.clientes.ClienteDAOImp;
 import com.example.maxfitvistaempleados.clientes.Clientes;
+import com.example.maxfitvistaempleados.dieta.Dieta_Pre_Anadir;
+import com.example.maxfitvistaempleados.dieta.Dieta_Pre_AnadirDAO;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
@@ -255,7 +257,7 @@ public class EmpleadosClientes implements Initializable {
 
     @javafx.fxml.FXML
     public void CerrarSesion(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("login-view.fxml","Inicio Sesión");
+        Main.login("Inicio Sesión");
     }
 
     @javafx.fxml.FXML
@@ -318,12 +320,28 @@ public class EmpleadosClientes implements Initializable {
 
     @javafx.fxml.FXML
     public void EDieta(ActionEvent actionEvent) throws IOException {
-        Clientes clientes = Sesion.getCliente();
-        if (clientes != null){
-            Main.changeScene("dietaXcliente-view.fxml","Dietas del cliente");
-        }else {
+        Clientes cliente = Sesion.getCliente();
+        if (cliente != null) {
+            // Verificar si el cliente tiene una dieta predefinida o personalizada
+            if (tieneDietaPredefinida(cliente)) {
+                Main.changeScene("dietaPreXcliente-view.fxml", "Dietas Predefinidas del cliente");
+            } else {
+                Main.changeScene("dietaXcliente-view.fxml", "Dietas Personalizadas del cliente");
+            }
+        } else {
             // Manejar el caso en que el cliente es nulo
-            showAlert("Error", "No se ha seleccionado ningún cliente para ver la rutina.");
+            showAlert("Error", "No se ha seleccionado ningún cliente para ver las dietas.");
         }
     }
+
+    // Método para verificar si el cliente tiene una dieta predefinida
+    private boolean tieneDietaPredefinida(Clientes cliente) {
+        // Lógica para verificar si el cliente tiene una dieta predefinida
+        // Esto puede implicar consultar la base de datos u otro método de verificación
+        // Aquí asumimos que existe un método en la clase Dieta_Pre_AnadirDAO para verificarlo
+        Dieta_Pre_AnadirDAO dietaPreAnadirDAO = new Dieta_Pre_AnadirDAO();
+        List<Dieta_Pre_Anadir> dietasPredefinidas = dietaPreAnadirDAO.getByCliente(cliente);
+        return !dietasPredefinidas.isEmpty(); // Devuelve verdadero si hay dietas predefinidas para el cliente
+    }
+
 }

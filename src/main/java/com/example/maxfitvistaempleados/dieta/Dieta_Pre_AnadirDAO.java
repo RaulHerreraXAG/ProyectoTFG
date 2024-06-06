@@ -150,4 +150,12 @@ public void addDietasToCliente(Long idCliente, String tipoDieta) {
 }
 
 
+    public List<Dieta_Pre_Anadir> getByCliente(Clientes cliente) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Dieta_Pre_Anadir> query = session.createQuery(
+                    "FROM Dieta_Pre_Anadir WHERE clientes = :cliente", Dieta_Pre_Anadir.class);
+            query.setParameter("cliente", cliente);
+            return query.getResultList();
+        }
+    }
 }

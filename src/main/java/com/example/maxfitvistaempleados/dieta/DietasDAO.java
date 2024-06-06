@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DietasDAO implements DAO<Dietas> {
 
@@ -141,6 +142,23 @@ public class DietasDAO implements DAO<Dietas> {
             return query.uniqueResult();
         }
     }
+    public List<Dietas> getByCliente2(Clientes cliente) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Dietas> query = session.createQuery("FROM Dietas WHERE clientes = :cliente", Dietas.class);
+            query.setParameter("cliente", cliente);
+            return query.getResultList();
+        }
+    }
+
+    // Obtener dietas predeterminadas por cliente
+    public List<Dietas> getPredeterminadasByCliente(Clientes cliente) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Dietas> query = session.createQuery("FROM Dieta_Pre_Anadir WHERE clientes = :cliente", Dietas.class);
+            query.setParameter("cliente", cliente);
+            return query.getResultList();
+        }
+    }
+
 
     public void deleteByCliente(Clientes cliente) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -148,9 +166,15 @@ public class DietasDAO implements DAO<Dietas> {
             try {
                 transaction = session.beginTransaction();
 
-                Query<?> query = session.createQuery("DELETE FROM Dietas WHERE clientes = :cliente");
-                query.setParameter("cliente", cliente);
-                query.executeUpdate();
+                // Eliminar dietas predeterminadas
+                Query<?> deleteDietasPredQuery = session.createQuery("DELETE FROM Dieta_Pre_Anadir WHERE clientes = :cliente");
+                deleteDietasPredQuery.setParameter("cliente", cliente);
+                deleteDietasPredQuery.executeUpdate();
+
+                // Eliminar dietas regulares
+                Query<?> deleteDietasQuery = session.createQuery("DELETE FROM Dietas WHERE clientes = :cliente");
+                deleteDietasQuery.setParameter("cliente", cliente);
+                deleteDietasQuery.executeUpdate();
 
                 transaction.commit();
             } catch (Exception e) {
@@ -161,4 +185,5 @@ public class DietasDAO implements DAO<Dietas> {
             }
         }
     }
+
 }

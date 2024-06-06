@@ -19,6 +19,13 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
     }
+    public static void login(String titulo) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/com/example/maxfitvistaempleados/views/login-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 585, 548);
+        myStage.setTitle("Inicio Sesion");
+        myStage.setScene(scene);
+        myStage.show();
+    }
     public static void changeScene(String fxml, String titulo) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/com/example/maxfitvistaempleados/views/" + fxml));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);

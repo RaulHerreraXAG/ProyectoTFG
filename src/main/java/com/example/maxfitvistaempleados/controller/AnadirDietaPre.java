@@ -81,13 +81,14 @@ public class AnadirDietaPre implements Initializable {
     }
 
     @javafx.fxml.FXML
-    public void CReceta(ActionEvent actionEvent) {
+    public void CReceta(ActionEvent actionEvent) throws IOException {
         String tipoDieta = cbTipoDieta.getValue();
         Clientes clienteActual = Sesion.getCliente(); // Obtén el cliente actual de la sesión
 
         if (tipoDieta != null && clienteActual != null) {
             Long idCliente = clienteActual.getMatricula(); // Aquí asumimos que getMatricula devuelve un Long
             dietaPreAnadirDAO.addDietasToCliente(idCliente, tipoDieta);
+            Main.changeScene("dietaPreXcliente-view.fxml","Dieta predeterminada");
         } else {
             // Manejo del caso cuando no hay ningún valor seleccionado en el ComboBox o cliente actual es nulo
             System.out.println("Seleccione un tipo de dieta y asegúrese de que haya un cliente en la sesión.");
@@ -95,7 +96,8 @@ public class AnadirDietaPre implements Initializable {
     }
 
     @javafx.fxml.FXML
-    public void VolverAtras(ActionEvent actionEvent) {
+    public void VolverAtras(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("dietaPreXcliente-view.fxml","Dieta predeterminada");
     }
 
 
