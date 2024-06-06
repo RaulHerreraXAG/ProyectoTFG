@@ -143,7 +143,7 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="ButtonCrear" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#CEjercicio" prefHeight="25.0" prefWidth="140.0" text="Crear Ejercicio">
+            <Button fx:id="ButtonCrear" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#CEjercicio" prefHeight="25.0" prefWidth="140.0" text="Actualizar Ejercicio">
                <HBox.margin>
                   <Insets />
                </HBox.margin>

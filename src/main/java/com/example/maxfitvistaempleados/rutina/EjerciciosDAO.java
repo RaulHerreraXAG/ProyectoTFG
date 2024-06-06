@@ -99,4 +99,11 @@ public class EjerciciosDAO implements DAO<Ejercicios> {
         }
         return salida;
     }
+
+    public static Long countEjercicios() {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Long> query = session.createQuery("select count(e) from Ejercicios e", Long.class);
+            return query.uniqueResult();
+        }
+    }
 }

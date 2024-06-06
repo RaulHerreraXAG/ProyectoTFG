@@ -131,7 +131,7 @@
                         <Font name="Calibri Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtCorreo" prefHeight="25.0" prefWidth="206.0" styleClass="textoLogin2" />
+                  <TextField fx:id="txtNumeroM" prefHeight="25.0" prefWidth="206.0" styleClass="textoLogin2" />
                </children>
             </HBox>
          </children>
