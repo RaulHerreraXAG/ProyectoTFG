@@ -59,6 +59,8 @@ public class DietaPrexClienteController implements Initializable {
     private Button btnDP;
     @javafx.fxml.FXML
     private Button btnVA;
+    @javafx.fxml.FXML
+    private ComboBox<String> cbDia;
 
     private DietasDAO dietasDAO = new DietasDAO();
 
@@ -67,6 +69,11 @@ public class DietaPrexClienteController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        ObservableList<String> dias = FXCollections.observableArrayList();
+        dias.addAll("Todos","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+        cbDia.setItems(dias);
+
         observableList = FXCollections.observableArrayList();
 
         this.CCDia.setCellValueFactory((fila) -> {
@@ -243,6 +250,27 @@ public class DietaPrexClienteController implements Initializable {
         return alert.showAndWait().filter(response -> response == buttonTypeYes).isPresent();
     }
 
+    @javafx.fxml.FXML
     public void bqDia(ActionEvent actionEvent) {
+        // Obtener el día seleccionado en el ComboBox
+        String diaSeleccionado = cbDia.getValue();
+
+        // Verificar si se ha seleccionado "Todos"
+        if ("Todos".equals(diaSeleccionado)) {
+            // Mostrar toda la información de la tabla nuevamente
+            observableList.clear();
+            observableList.addAll(dietaPreAnadirDAO.getAll());
+        } else {
+            // Filtrar la lista de dietas por el día seleccionado
+            ObservableList<Dieta_Pre_Anadir> resultados = FXCollections.observableArrayList();
+            for (Dieta_Pre_Anadir dieta : observableList) {
+                if (dieta.getDietaPredeterminada().getDia_semana().equals(diaSeleccionado)) {
+                    resultados.add(dieta);
+                }
+            }
+
+            // Actualizar la tabla con los resultados de la búsqueda
+            tvDieta.setItems(resultados);
+        }
     }
 }

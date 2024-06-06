@@ -26,15 +26,15 @@ public class IngresosController implements Initializable {
     @javafx.fxml.FXML
     private TextField txtNombre;
     @javafx.fxml.FXML
-    private TableColumn<Ingresos , String> CCNombre;
+    private TableColumn<Ingresos, String> CCNombre;
     @javafx.fxml.FXML
-    private TableColumn<Ingresos , String> CCFecha;
+    private TableColumn<Ingresos, String> CCFecha;
     @javafx.fxml.FXML
-    private TableColumn<Ingresos , String> CCPago;
+    private TableColumn<Ingresos, String> CCPago;
     @javafx.fxml.FXML
-    private TableColumn<Ingresos , String> CCGrupo;
+    private TableColumn<Ingresos, String> CCGrupo;
     @javafx.fxml.FXML
-    private TableColumn<Ingresos , String> CCDinero;
+    private TableColumn<Ingresos, String> CCDinero;
     @javafx.fxml.FXML
     private Button btnCerrarSesion;
     @javafx.fxml.FXML
@@ -45,7 +45,7 @@ public class IngresosController implements Initializable {
     private TableView<Ingresos> tvIngresos;
     private ObservableList<Ingresos> observableList;
     @FXML
-    private TableColumn<Ingresos , String> CCID;
+    private TableColumn<Ingresos, String> CCID;
     private IngresosDAO ingresosDAO = new IngresosDAO();
 
     private ArrayList<Empleado> listaEmpleados;
@@ -54,47 +54,47 @@ public class IngresosController implements Initializable {
     @FXML
     private ComboBox<String> cbPago;
     @FXML
-    private ComboBox<String>cbGrupo;
+    private ComboBox<String> cbGrupo;
 
-    public IngresosController(){
+    public IngresosController() {
 
     }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<String> tiposPago = FXCollections.observableArrayList("Efectivo", "Tarjeta","Todos");
-        ObservableList<String> tiposdeCompra = FXCollections.observableArrayList("Gym","Zumba","Yoga","Pilates","Boxeo","Todos");
+        ObservableList<String> tiposPago = FXCollections.observableArrayList("Efectivo", "Tarjeta", "Todos");
+        ObservableList<String> tiposdeCompra = FXCollections.observableArrayList("Gym", "Zumba", "Yoga", "Pilates", "Boxeo", "Todos");
         cbGrupo.setItems(tiposdeCompra);
         cbPago.setItems(tiposPago);
         observableList = FXCollections.observableArrayList();
-            this.CCID.setCellValueFactory((fila) -> {
-                String cID = String.valueOf(fila.getValue().getEmpleado());
-                return new SimpleStringProperty(cID);
-            });
-            this.CCNombre.setCellValueFactory((fila) -> {
-                String cNombre = String.valueOf(fila.getValue().getNombre());
-                return new SimpleStringProperty(cNombre);
-            });
-            this.CCFecha.setCellValueFactory((fila) -> {
-                String cFecha = String.valueOf(fila.getValue().getFecha());
-                return new SimpleStringProperty(cFecha);
-            });
-            this.CCPago.setCellValueFactory((fila) -> {
-                String cPago = String.valueOf(fila.getValue().getTipopago());
-                return new SimpleStringProperty(cPago);
-            });
-            this.CCGrupo.setCellValueFactory((fila) -> {
-                String cGrupo = String.valueOf(fila.getValue().getGrupo());
-                return new SimpleStringProperty(cGrupo);
-            });
-            this.CCDinero.setCellValueFactory((fila) -> {
-                String cDinero = String.valueOf(fila.getValue().getDinero());
-                return new SimpleStringProperty(cDinero);
-            });
+        this.CCID.setCellValueFactory((fila) -> {
+            String cID = String.valueOf(fila.getValue().getEmpleado());
+            return new SimpleStringProperty(cID);
+        });
+        this.CCNombre.setCellValueFactory((fila) -> {
+            String cNombre = String.valueOf(fila.getValue().getNombre());
+            return new SimpleStringProperty(cNombre);
+        });
+        this.CCFecha.setCellValueFactory((fila) -> {
+            String cFecha = String.valueOf(fila.getValue().getFecha());
+            return new SimpleStringProperty(cFecha);
+        });
+        this.CCPago.setCellValueFactory((fila) -> {
+            String cPago = String.valueOf(fila.getValue().getTipopago());
+            return new SimpleStringProperty(cPago);
+        });
+        this.CCGrupo.setCellValueFactory((fila) -> {
+            String cGrupo = String.valueOf(fila.getValue().getGrupo());
+            return new SimpleStringProperty(cGrupo);
+        });
+        this.CCDinero.setCellValueFactory((fila) -> {
+            String cDinero = String.valueOf(fila.getValue().getDinero());
+            return new SimpleStringProperty(cDinero);
+        });
 
-            observableList.addAll(ingresosDAO.getAll());
-            tvIngresos.setItems(observableList);
+        observableList.addAll(ingresosDAO.getAll());
+        tvIngresos.setItems(observableList);
         // Al hacer dos veces click en la tabla te lleva a la vista de editar cliente
         tvIngresos.setOnMouseClicked(event -> {
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
@@ -102,14 +102,13 @@ public class IngresosController implements Initializable {
                 if (selectedIngreso != null) {
                     Sesion.setIngresos(selectedIngreso);
                     try {
-                        Main.changeScene("EI-view.fxml","Editar Ingresos");
+                        Main.changeScene("EI-view.fxml", "Editar Ingresos");
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
                 }
             }
         });
-
 
 
     }
@@ -141,41 +140,39 @@ public class IngresosController implements Initializable {
     }
 
 
-
-
-
     @javafx.fxml.FXML
     public void CerrarSesion(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("login-view.fxml","Inicio Sesión");
+        Main.changeScene("login-view.fxml", "Inicio Sesión");
     }
 
     @javafx.fxml.FXML
     public void Cliente(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("view-empleado.fxml","Cliente");
+        Main.changeScene("view-empleado.fxml", "Cliente");
     }
 
     @javafx.fxml.FXML
     public void Pago(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("pago-view.fxml","Pagos");
+        Main.changeScene("pago-view.fxml", "Pagos");
     }
 
     @javafx.fxml.FXML
     public void Dietas(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("dieta-view.fxml","Dietas");
+        Main.changeScene("dieta-view.fxml", "Dietas");
 
     }
 
     @javafx.fxml.FXML
     public void Rutina(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("rutina-view.fxml","Rutina");
+        Main.changeScene("rutina-view.fxml", "Rutina");
     }
+
     public void Clientes(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("view-empleado.fxml","Clientes");
+        Main.changeScene("view-empleado.fxml", "Clientes");
     }
 
     @javafx.fxml.FXML
     public void CrearIngreso(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("CI-view.fxml","Creador de Ingresos");
+        Main.changeScene("CI-view.fxml", "Creador de Ingresos");
     }
 
 
@@ -210,31 +207,42 @@ public class IngresosController implements Initializable {
         // Obtener el tipo de pago seleccionado en el ComboBox
         String tipoPagoSeleccionado = cbPago.getValue();
 
-        // Realizar la búsqueda de ingresos asociados con el tipo de pago seleccionado
-        IngresosDAO ingresosDAO = new IngresosDAO();
-        List<Ingresos> ingresosList = ingresosDAO.obtenerIngresosPorTipoPago(tipoPagoSeleccionado);
+        // Verificar si se ha seleccionado "Todos"
+        if ("Todos".equals(tipoPagoSeleccionado)) {
+            // Mostrar toda la información de la tabla nuevamente
+            tvIngresos.setItems(observableList);
+        } else {
+            // Realizar la búsqueda de ingresos asociados con el tipo de pago seleccionado
+            IngresosDAO ingresosDAO = new IngresosDAO();
+            List<Ingresos> ingresosList = ingresosDAO.obtenerIngresosPorTipoPago(tipoPagoSeleccionado);
 
-        // Convertir la lista de ingresos a un ObservableList
-        ObservableList<Ingresos> resultados = FXCollections.observableArrayList(ingresosList);
+            // Convertir la lista de ingresos a un ObservableList
+            ObservableList<Ingresos> resultados = FXCollections.observableArrayList(ingresosList);
 
-        // Actualizar la tabla tvIngresos con los resultados de la búsqueda
-        tvIngresos.setItems(resultados);
-
+            // Actualizar la tabla tvIngresos con los resultados de la búsqueda
+            tvIngresos.setItems(resultados);
+        }
     }
 
     @FXML
     public void bqGrupo(ActionEvent actionEvent) {
-        // Obtener el tipo de pago seleccionado en el ComboBox
-        String tipoPagoSeleccionado = cbGrupo.getValue();
+        // Obtener el grupo seleccionado en el ComboBox
+        String grupoSeleccionado = cbGrupo.getValue();
 
-        // Realizar la búsqueda de ingresos asociados con el tipo de pago seleccionado
-        IngresosDAO ingresosDAO = new IngresosDAO();
-        List<Ingresos> ingresosList = ingresosDAO.obtenerIngresosPorTipoComprar(tipoPagoSeleccionado);
+        // Verificar si se ha seleccionado "Todos"
+        if ("Todos".equals(grupoSeleccionado)) {
+            // Mostrar toda la información de la tabla nuevamente
+            tvIngresos.setItems(observableList);
+        } else {
+            // Realizar la búsqueda de ingresos asociados con el grupo seleccionado
+            IngresosDAO ingresosDAO = new IngresosDAO();
+            List<Ingresos> ingresosList = ingresosDAO.obtenerIngresosPorTipoComprar(grupoSeleccionado);
 
-        // Convertir la lista de ingresos a un ObservableList
-        ObservableList<Ingresos> resultados = FXCollections.observableArrayList(ingresosList);
+            // Convertir la lista de ingresos a un ObservableList
+            ObservableList<Ingresos> resultados = FXCollections.observableArrayList(ingresosList);
 
-        // Actualizar la tabla tvIngresos con los resultados de la búsqueda
-        tvIngresos.setItems(resultados);
+            // Actualizar la tabla tvIngresos con los resultados de la búsqueda
+            tvIngresos.setItems(resultados);
+        }
     }
 }

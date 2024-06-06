@@ -73,11 +73,11 @@ public class RutinaXClienteController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ObservableList<String> grupoMuscular = FXCollections.observableArrayList();
-        grupoMuscular.addAll("Biceps","Triceps","Hombro","Cuadriceps","Gemelo","Femoral","Lumbar","Espalda","Glúteo","Pecho","Cardio","Abdominales");
+        grupoMuscular.addAll("Todos","Biceps","Triceps","Hombro","Cuadriceps","Gemelo","Femoral","Lumbar","Espalda","Glúteo","Pecho","Cardio","Abdominales");
         cbGrupo1.setItems(grupoMuscular);
 
         ObservableList<String> dia = FXCollections.observableArrayList();
-        dia.addAll("Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+        dia.addAll("Todos","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
         cbDia.setItems(dia);
 
         observableList = FXCollections.observableArrayList();
@@ -150,10 +150,50 @@ public class RutinaXClienteController implements Initializable {
 
     @javafx.fxml.FXML
     public void bqDia(ActionEvent actionEvent) {
+        // Obtener el día seleccionado en el ComboBox
+        String diaSeleccionado = cbDia.getValue();
+
+        // Verificar si se ha seleccionado "Todos"
+        if ("Todos".equals(diaSeleccionado)) {
+            // Mostrar toda la información de la tabla nuevamente
+            tvRutina.setItems(observableList);
+        } else {
+            // Filtrar la lista de rutinas por el día seleccionado
+            ObservableList<Rutina> resultados = FXCollections.observableArrayList();
+            for (Rutina rutina : observableList) {
+                // Obtener el día de la rutina y verificar si coincide con el día seleccionado
+                if (rutina.getDia().equals(diaSeleccionado)) {
+                    resultados.add(rutina);
+                }
+            }
+
+            // Actualizar la tabla con los resultados de la búsqueda
+            tvRutina.setItems(resultados);
+        }
     }
 
     @javafx.fxml.FXML
     public void bqGrupo(ActionEvent actionEvent) {
+        // Obtener el grupo muscular seleccionado en el ComboBox
+        String grupoMuscularSeleccionado = cbGrupo1.getValue();
+
+        // Verificar si se ha seleccionado "Todos"
+        if ("Todos".equals(grupoMuscularSeleccionado)) {
+            // Mostrar toda la información de la tabla nuevamente
+            tvRutina.setItems(observableList);
+        } else {
+            // Filtrar la lista de rutinas por el grupo muscular seleccionado
+            ObservableList<Rutina> resultados = FXCollections.observableArrayList();
+            for (Rutina rutina : observableList) {
+                // Obtener el grupo muscular del ejercicio asociado a la rutina y verificar si coincide con el grupo seleccionado
+                if (rutina.getEjercicios() != null && rutina.getEjercicios().getCuerpo().equals(grupoMuscularSeleccionado)) {
+                    resultados.add(rutina);
+                }
+            }
+
+            // Actualizar la tabla con los resultados de la búsqueda
+            tvRutina.setItems(resultados);
+        }
     }
 
     @javafx.fxml.FXML

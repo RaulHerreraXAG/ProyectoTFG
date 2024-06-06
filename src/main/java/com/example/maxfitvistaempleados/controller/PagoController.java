@@ -140,15 +140,21 @@ public class PagoController implements Initializable {
         // Obtener el tipo de pago seleccionado en el ComboBox
         String tipoPagoSeleccionado = cbPago.getValue();
 
-        // Realizar la búsqueda de ingresos asociados con el tipo de pago seleccionado
-        PagosDAO pagosDAO1 = new PagosDAO();
-        List<Pagos> PagosList = pagosDAO1.obtenerIngresosPorTipoPago(tipoPagoSeleccionado);
+        // Verificar si se ha seleccionado "Todos"
+        if ("Todos".equals(tipoPagoSeleccionado)) {
+            // Mostrar toda la información de la tabla nuevamente
+            tvPagos.setItems(observableList);
+        } else {
+            // Realizar la búsqueda de pagos asociados con el tipo de pago seleccionado
+            PagosDAO pagosDAO = new PagosDAO();
+            List<Pagos> pagosList = pagosDAO.obtenerIngresosPorTipoPago(tipoPagoSeleccionado);
 
-        // Convertir la lista de ingresos a un ObservableList
-        ObservableList<Pagos> resultados = FXCollections.observableArrayList(PagosList);
+            // Convertir la lista de pagos a un ObservableList
+            ObservableList<Pagos> resultados = FXCollections.observableArrayList(pagosList);
 
-        // Actualizar la tabla tvIngresos con los resultados de la búsqueda
-        tvPagos.setItems(resultados);
+            // Actualizar la tabla tvPagos con los resultados de la búsqueda
+            tvPagos.setItems(resultados);
+        }
     }
 
     @javafx.fxml.FXML
@@ -178,20 +184,25 @@ public class PagoController implements Initializable {
 
     @javafx.fxml.FXML
     public void bqGrupo(ActionEvent actionEvent) {
-        // Obtener el tipo de pago seleccionado en el ComboBox
-        String tipoPagoSeleccionado = cbGrupo.getValue();
+        // Obtener el grupo seleccionado en el ComboBox
+        String grupoSeleccionado = cbGrupo.getValue();
 
-        // Realizar la búsqueda de ingresos asociados con el tipo de pago seleccionado
-        PagosDAO pagosDAO1 = new PagosDAO();
-        List<Pagos> pagosList = pagosDAO1.obtenerIngresosPorTipoComprar(tipoPagoSeleccionado);
+        // Verificar si se ha seleccionado "Todos"
+        if ("Todos".equals(grupoSeleccionado)) {
+            // Mostrar toda la información de la tabla nuevamente
+            tvPagos.setItems(observableList);
+        } else {
+            // Realizar la búsqueda de pagos asociados con el grupo seleccionado
+            PagosDAO pagosDAO = new PagosDAO();
+            List<Pagos> pagosList = pagosDAO.obtenerIngresosPorTipoComprar(grupoSeleccionado);
 
-        // Convertir la lista de ingresos a un ObservableList
-        ObservableList<Pagos> resultados = FXCollections.observableArrayList(pagosList);
+            // Convertir la lista de pagos a un ObservableList
+            ObservableList<Pagos> resultados = FXCollections.observableArrayList(pagosList);
 
-        // Actualizar la tabla tvIngresos con los resultados de la búsqueda
-        tvPagos.setItems(resultados);
+            // Actualizar la tabla tvPagos con los resultados de la búsqueda
+            tvPagos.setItems(resultados);
+        }
     }
-
     @javafx.fxml.FXML
     public void CerrarSesion(ActionEvent actionEvent) throws IOException {
         Main.changeScene("login-view.fxml","Inicio Sesion");

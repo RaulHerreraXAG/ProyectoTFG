@@ -64,14 +64,78 @@ public class EjercicioController  implements Initializable {
 
     @javafx.fxml.FXML
     public void bqEjercicio(ActionEvent actionEvent) {
+        // Obtener el nombre del ejercicio ingresado por el usuario desde un TextField
+        String nombreEjercicio = txtEjercicio.getText().toLowerCase(); // Convertir a minúsculas para una comparación sin distinción de mayúsculas/minúsculas
+
+        // Verificar si el campo de búsqueda está vacío
+        if (nombreEjercicio.isEmpty()) {
+            // Si está vacío, mostrar toda la información de la tabla nuevamente
+            tvEjercicio.setItems(observableList);
+        } else {
+            // Filtrar la lista de ejercicios por el nombre ingresado (con aproximación)
+            ObservableList<Ejercicios> resultados = FXCollections.observableArrayList();
+            for (Ejercicios ejercicio : observableList) {
+                // Obtener el nombre del ejercicio en minúsculas para una comparación sin distinción de mayúsculas/minúsculas
+                String nombreEjercicioLowerCase = ejercicio.getNombre().toLowerCase();
+                // Verificar si el nombre del ejercicio contiene la cadena ingresada por el usuario
+                if (nombreEjercicioLowerCase.contains(nombreEjercicio)) {
+                    resultados.add(ejercicio);
+                }
+            }
+
+            // Actualizar la tabla con los resultados de la búsqueda
+            tvEjercicio.setItems(resultados);
+        }
     }
 
     @javafx.fxml.FXML
     public void bqNum(ActionEvent actionEvent) {
+        // Obtener el número del ejercicio ingresado por el usuario desde un TextField
+        String numEjercicio = txtNum.getText();
+
+        // Verificar si el campo de búsqueda está vacío
+        if (numEjercicio.isEmpty()) {
+            // Si está vacío, mostrar toda la información de la tabla nuevamente
+            tvEjercicio.setItems(observableList);
+        } else {
+            // Filtrar la lista de ejercicios por el número ingresado
+            ObservableList<Ejercicios> resultados = FXCollections.observableArrayList();
+            for (Ejercicios ejercicio : observableList) {
+                // Obtener el número del ejercicio y convertirlo a String para comparar
+                String numEjercicioString = String.valueOf(ejercicio.getNumero());
+                // Verificar si el número del ejercicio coincide con el número ingresado por el usuario
+                if (numEjercicioString.equals(numEjercicio)) {
+                    resultados.add(ejercicio);
+                }
+            }
+
+            // Actualizar la tabla con los resultados de la búsqueda
+            tvEjercicio.setItems(resultados);
+        }
     }
 
     @javafx.fxml.FXML
     public void bqGrupo(ActionEvent actionEvent) {
+        // Obtener el grupo muscular seleccionado en el ComboBox
+        String grupoMuscularSeleccionado = cbGrupo1.getValue();
+
+        // Verificar si se ha seleccionado un grupo muscular
+        if (grupoMuscularSeleccionado != null) {
+            // Filtrar la lista de ejercicios por el grupo muscular seleccionado
+            ObservableList<Ejercicios> resultados = FXCollections.observableArrayList();
+            for (Ejercicios ejercicio : observableList) {
+                // Obtener el grupo muscular del ejercicio y verificar si coincide con el grupo seleccionado
+                if (ejercicio.getCuerpo().equals(grupoMuscularSeleccionado)) {
+                    resultados.add(ejercicio);
+                }
+            }
+
+            // Actualizar la tabla con los resultados de la búsqueda
+            tvEjercicio.setItems(resultados);
+        } else {
+            // Si no se ha seleccionado ningún grupo muscular, mostrar toda la información de la tabla nuevamente
+            tvEjercicio.setItems(observableList);
+        }
     }
 
     @javafx.fxml.FXML

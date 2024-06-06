@@ -26,7 +26,7 @@ import java.util.ResourceBundle;
 
 public class DietaController implements Initializable {
     @javafx.fxml.FXML
-    private ComboBox cbDia;
+    private ComboBox<String> cbDia;
     @javafx.fxml.FXML
     private ComboBox cbNombreReceta;
     @javafx.fxml.FXML
@@ -71,6 +71,9 @@ public class DietaController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         observableList = FXCollections.observableArrayList();
+        ObservableList<String> dia = FXCollections.observableArrayList();
+        dia.addAll("Todos","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+        cbDia.setItems(dia);
 
         this.CCDia.setCellValueFactory((fila) ->{
             String CCDia = String.valueOf(fila.getValue().getDia());
@@ -119,7 +122,7 @@ public class DietaController implements Initializable {
                     Sesion.setDietas(dietas);
                     Sesion.setRecetas(recetas);
                     try {
-                        Main.changeScene("ED-view.fxml","Editar Dietas");
+                        Main.changeScene("editarDieta-view.fxml","Editar Dietas");
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
@@ -132,6 +135,25 @@ public class DietaController implements Initializable {
 
     @javafx.fxml.FXML
     public void bqDia(ActionEvent actionEvent) {
+        // Obtener el día seleccionado en el ComboBox
+        String diaSeleccionado = cbDia.getValue();
+
+        // Verificar si se ha seleccionado "Todos"
+        if ("Todos".equals(diaSeleccionado)) {
+            // Mostrar toda la información de la tabla nuevamente
+            tvDieta.setItems(observableList);
+        } else {
+            // Filtrar la lista de dietas por el día seleccionado
+            ObservableList<Dietas> resultados = FXCollections.observableArrayList();
+            for (Dietas dieta : observableList) {
+                if (dieta.getDia().equals(diaSeleccionado)) {
+                    resultados.add(dieta);
+                }
+            }
+
+            // Actualizar la tabla con los resultados de la búsqueda
+            tvDieta.setItems(resultados);
+        }
     }
 
     @javafx.fxml.FXML
