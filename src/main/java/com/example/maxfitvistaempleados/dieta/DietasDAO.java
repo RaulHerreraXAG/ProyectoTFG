@@ -141,4 +141,24 @@ public class DietasDAO implements DAO<Dietas> {
             return query.uniqueResult();
         }
     }
+
+    public void deleteByCliente(Clientes cliente) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Transaction transaction = null;
+            try {
+                transaction = session.beginTransaction();
+
+                Query<?> query = session.createQuery("DELETE FROM Dietas WHERE clientes = :cliente");
+                query.setParameter("cliente", cliente);
+                query.executeUpdate();
+
+                transaction.commit();
+            } catch (Exception e) {
+                if (transaction != null) {
+                    transaction.rollback();
+                }
+                e.printStackTrace();
+            }
+        }
+    }
 }

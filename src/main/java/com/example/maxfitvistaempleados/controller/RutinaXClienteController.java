@@ -187,15 +187,36 @@ public class RutinaXClienteController implements Initializable {
         Main.changeScene("view-empleado.fxml","Clientes");
     }
 
-    @javafx.fxml.FXML
     public void CrearRutina(ActionEvent actionEvent) throws IOException {
         Clientes clientes = Sesion.getCliente();
-        if(clientes != null){
-            Main.changeScene("CR-view.fxml","Creacion de Rutina");
-        }else{
-            showAlert("ERROR","No existe cliente");
+        if (clientes != null) {
+            List<Rutina> rutinas = rutinaDAO.getByCliente2(clientes);
+            if (!rutinas.isEmpty()) {
+                Rutina rutina = rutinas.get(0); // Obtiene la primera rutina de la lista
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirmación");
+                alert.setHeaderText("El cliente ya tiene una rutina.");
+                alert.setContentText("¿Está seguro de que desea crear una nueva rutina? Esto borrará la rutina anterior.");
+
+                alert.showAndWait().ifPresent(response -> {
+                    if (response == ButtonType.OK) {
+                        rutinaDAO.deleteByCliente(clientes);
+                        try {
+                            Main.changeScene("CR-view.fxml", "Creación de Rutina");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            showAlert("Error", "No se pudo cambiar la escena.");
+                        }
+                    }
+                });
+            } else {
+                Main.changeScene("CR-view.fxml", "Creación de Rutina");
+            }
+        } else {
+            showAlert("ERROR", "No existe cliente");
         }
     }
+
     private void showAlert(String title, String content) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
@@ -211,13 +232,6 @@ public class RutinaXClienteController implements Initializable {
         Main.changeScene("Ejercicios-view.fxml","Ejercicios");
     }
 
-
-/*
-    @Deprecated
-    public void AnadirRutinaPredeterminada(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("ARP-rutina.fxml","Selección de Rutina");
-    }
- */
 
     public void VolverAtras(ActionEvent actionEvent) throws IOException {
         Clientes clientes = Sesion.getCliente();

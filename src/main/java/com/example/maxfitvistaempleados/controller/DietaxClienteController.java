@@ -169,15 +169,40 @@ public class DietaxClienteController implements Initializable {
         Main.changeScene("view-empleado.fxml","Clientes");
     }
 
+
     @javafx.fxml.FXML
     public void CrearDieta(ActionEvent actionEvent) throws IOException {
         Clientes clientes = Sesion.getCliente();
-        if(clientes != null){
-            Main.changeScene("CD-view.fxml","Creación de Dieta Lunes");
-        }else{
-            showAlert("ERROR","No existe cliente");
+        if (clientes != null) {
+            List<Dietas> dietasCliente = dietasDAO.getByCliente(clientes);
+
+            if (dietasCliente.isEmpty()) {
+                // No hay dietas, cambiar directamente a la nueva escena.
+                Main.changeScene("CD-view.fxml", "Creación de Dieta Lunes");
+            } else {
+                // Hay dietas, mostrar confirmación.
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirmación");
+                alert.setHeaderText("¿Está seguro de que desea borrar la dieta anterior?");
+                alert.setContentText("Esta acción no se puede deshacer.");
+
+                alert.showAndWait().ifPresent(response -> {
+                    if (response == ButtonType.OK) {
+                        dietasDAO.deleteByCliente(clientes);
+                        try {
+                            Main.changeScene("CD-view.fxml", "Creación de Dieta Lunes");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            showAlert("Error", "No se pudo cambiar la escena.");
+                        }
+                    }
+                });
+            }
+        } else {
+            showAlert("ERROR", "No existe cliente");
         }
     }
+
 
 
     @javafx.fxml.FXML
@@ -198,4 +223,19 @@ public class DietaxClienteController implements Initializable {
         alert.setContentText(content);
         alert.showAndWait();
     }
+
+    private boolean showConfirmationAlert(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+
+        ButtonType buttonTypeYes = new ButtonType("Sí");
+        ButtonType buttonTypeNo = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+
+        return alert.showAndWait().filter(response -> response == buttonTypeYes).isPresent();
+    }
+
 }

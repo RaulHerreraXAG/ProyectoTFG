@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RutinaDAO implements DAO<Rutina> {
     @Override
@@ -107,4 +108,38 @@ public class RutinaDAO implements DAO<Rutina> {
             return query.uniqueResult();
         }
     }
+
+    public void deleteByCliente(Clientes cliente) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Transaction transaction = null;
+            try {
+                // Comienza la transacción
+                transaction = session.beginTransaction();
+
+                // Crea y ejecuta la consulta para eliminar las dietas asociadas al cliente
+                Query<?> query = session.createQuery("DELETE FROM Rutina WHERE clientes = :cliente");
+                query.setParameter("cliente", cliente);
+                query.executeUpdate();
+
+                // Confirma la transacción
+                transaction.commit();
+            } catch (Exception e) {
+                // Maneja cualquier excepción y revierte la transacción si es necesario
+                if (transaction != null) {
+                    transaction.rollback();
+                }
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public List<Rutina> getByCliente2(Clientes cliente) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Rutina> query = session.createQuery("from Rutina where clientes = :cliente", Rutina.class);
+            query.setParameter("cliente", cliente);
+            return query.getResultList();
+        }
+    }
+
+
 }

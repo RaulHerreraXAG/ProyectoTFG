@@ -123,7 +123,7 @@ public class EditarIngresos implements Initializable {
         ingresosDAO1.update(ingresos);
 
         if(Sesion.getEmpleado() != null) {
-            Main.changeScene("ingresos-view.fxml", "Ingresos");
+            Main.changeScene("ingreso-view.fxml", "Ingresos");
         }
 
         //Alerta que indica que el pedido fue creado con éxito.
@@ -145,8 +145,7 @@ public class EditarIngresos implements Initializable {
         if (result.getButtonData() == ButtonBar.ButtonData.OK_DONE){
             ingresosDAO.delete(ingresosSeleccionado);
             if(Sesion.getEmpleado() != null) {
-                Main.changeScene("ingresos-view.fxml", "Ingresos");
-                Main.changeScene("ingresoAdmin-view.fxml", "Ingresos");
+                Main.changeScene("ingreso-view.fxml", "Ingresos");
             }
         }
     }

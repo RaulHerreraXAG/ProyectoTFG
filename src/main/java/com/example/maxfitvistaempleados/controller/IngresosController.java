@@ -102,7 +102,7 @@ public class IngresosController implements Initializable {
                 if (selectedIngreso != null) {
                     Sesion.setIngresos(selectedIngreso);
                     try {
-                        Main.changeScene("editar-Ingreso-view.fxml","Editar Ingresos");
+                        Main.changeScene("EI-view.fxml","Editar Ingresos");
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }

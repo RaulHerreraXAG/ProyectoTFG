@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -183,7 +184,27 @@ public class EmpleadosClientes implements Initializable {
         txtObservacion.setText(cliente.getObservacion());
         txtMatricula.setText(String.valueOf(cliente.getMatricula()));
         txtFechaFin.setText(String.valueOf(cliente.getFechaFin()));
+
+        // Comprobar si la fechaFin es menor que la fecha actual
+        LocalDate fechaFin = cliente.getFechaFin();
+        LocalDate fechaActual = LocalDate.now();
+
+        if (fechaFin.isBefore(fechaActual)) {
+            txtFechaFin.setStyle("-fx-text-fill: red;");
+            showWarning("Advertencia", "La fecha de fin es anterior a la fecha actual.");
+        } else {
+            txtFechaFin.setStyle(""); // Reset style if the date is valid
+        }
     }
+
+    private void showWarning(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
 
     public void mostrarMensajeError(String mensaje) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
