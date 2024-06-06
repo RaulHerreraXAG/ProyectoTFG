@@ -149,7 +149,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbEjercicio4" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbEjercicio4" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -162,7 +162,10 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtRepe4" styleClass="textoLogin2" />
+                              <TextField fx:id="txtRepe4" prefWidth="290.0" styleClass="textoLogin2">
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font></TextField>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -175,10 +178,13 @@
                                     <Insets bottom="14.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="txtSeries4" styleClass="textoLogin2">
+                              <TextField fx:id="txtSeries4" prefWidth="290.0" styleClass="textoLogin2">
                                  <HBox.margin>
                                     <Insets bottom="14.0" />
-                                 </HBox.margin></TextField>
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font></TextField>
                            </children>
                         </HBox>
                      </children>
@@ -195,7 +201,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbEjercicio1" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbEjercicio1" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -208,7 +214,10 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtRepe" styleClass="textoLogin2" />
+                              <TextField fx:id="txtRepe" prefWidth="290.0" styleClass="textoLogin2">
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font></TextField>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -221,10 +230,13 @@
                                     <Insets bottom="14.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="txtSeries1" styleClass="textoLogin2">
+                              <TextField fx:id="txtSeries1" prefWidth="290.0" styleClass="textoLogin2">
                                  <HBox.margin>
                                     <Insets bottom="14.0" />
-                                 </HBox.margin></TextField>
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font></TextField>
                            </children>
                         </HBox>
                      </children>
@@ -241,7 +253,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbEjercicio2" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbEjercicio2" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -254,7 +266,10 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtRepe2" styleClass="textoLogin2" />
+                              <TextField fx:id="txtRepe2" prefWidth="290.0" styleClass="textoLogin2">
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font></TextField>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -267,10 +282,13 @@
                                     <Insets bottom="14.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="txtSeries2" styleClass="textoLogin2">
+                              <TextField fx:id="txtSeries2" prefWidth="290.0" styleClass="textoLogin2">
                                  <HBox.margin>
                                     <Insets bottom="14.0" />
-                                 </HBox.margin></TextField>
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font></TextField>
                            </children>
                         </HBox>
                      </children>
@@ -287,7 +305,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbEjercicio3" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbEjercicio3" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -300,7 +318,10 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtRepe3" styleClass="textoLogin2" />
+                              <TextField fx:id="txtRepe3" prefWidth="290.0" styleClass="textoLogin2">
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font></TextField>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -313,10 +334,13 @@
                                     <Insets bottom="14.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="txtSeries3" styleClass="textoLogin2">
+                              <TextField fx:id="txtSeries3" prefWidth="290.0" styleClass="textoLogin2">
                                  <HBox.margin>
                                     <Insets bottom="14.0" />
-                                 </HBox.margin></TextField>
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font></TextField>
                            </children>
                         </HBox>
                      </children>
@@ -333,7 +357,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbEjercicio5" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbEjercicio5" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -346,7 +370,10 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtRepe5" styleClass="textoLogin2" />
+                              <TextField fx:id="txtRepe5" prefWidth="290.0" styleClass="textoLogin2">
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font></TextField>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -359,10 +386,13 @@
                                     <Insets bottom="14.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="txtSeries5" styleClass="textoLogin2">
+                              <TextField fx:id="txtSeries5" prefWidth="290.0" styleClass="textoLogin2">
                                  <HBox.margin>
                                     <Insets bottom="14.0" />
-                                 </HBox.margin></TextField>
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font></TextField>
                            </children>
                         </HBox>
                      </children>
@@ -379,7 +409,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbEjercicio6" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbEjercicio6" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -392,7 +422,10 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtRepe6" styleClass="textoLogin2" />
+                              <TextField fx:id="txtRepe6" prefWidth="290.0" styleClass="textoLogin2">
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font></TextField>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -405,10 +438,13 @@
                                     <Insets bottom="14.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="txtSeries6" styleClass="textoLogin2">
+                              <TextField fx:id="txtSeries6" prefWidth="290.0" styleClass="textoLogin2">
                                  <HBox.margin>
                                     <Insets bottom="14.0" />
-                                 </HBox.margin></TextField>
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font></TextField>
                            </children>
                         </HBox>
                      </children>
@@ -425,7 +461,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbEjercicio7" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbEjercicio7" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -438,7 +474,10 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtRepe7" styleClass="textoLogin2" />
+                              <TextField fx:id="txtRepe7" prefWidth="290.0" styleClass="textoLogin2">
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font></TextField>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -451,10 +490,13 @@
                                     <Insets bottom="14.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="txtSeries7" styleClass="textoLogin2">
+                              <TextField fx:id="txtSeries7" prefWidth="290.0" styleClass="textoLogin2">
                                  <HBox.margin>
                                     <Insets bottom="14.0" />
-                                 </HBox.margin></TextField>
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font></TextField>
                            </children>
                         </HBox>
                      </children>
@@ -471,7 +513,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbEjercicio8" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbEjercicio8" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -484,7 +526,10 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtRepe8" styleClass="textoLogin2" />
+                              <TextField fx:id="txtRepe8" prefWidth="290.0" styleClass="textoLogin2">
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font></TextField>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -497,10 +542,13 @@
                                     <Insets bottom="14.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="txtSeries8" styleClass="textoLogin2">
+                              <TextField fx:id="txtSeries8" prefWidth="290.0" styleClass="textoLogin2">
                                  <HBox.margin>
                                     <Insets bottom="14.0" />
-                                 </HBox.margin></TextField>
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font></TextField>
                            </children>
                         </HBox>
                      </children>

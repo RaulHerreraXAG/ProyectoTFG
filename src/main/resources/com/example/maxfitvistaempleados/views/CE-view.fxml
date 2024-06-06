@@ -92,7 +92,10 @@
                               <Font name="Calibri Bold Italic" size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtSalario" prefWidth="200.0" styleClass="textoLogin2" />
+                        <TextField fx:id="txtSalario" prefWidth="200.0" styleClass="textoLogin2">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font></TextField>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
@@ -105,7 +108,10 @@
                               <Font name="Calibri Bold Italic" size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtCorreo" prefWidth="200.0" styleClass="textoLogin2" />
+                        <TextField fx:id="txtCorreo" prefWidth="200.0" styleClass="textoLogin2">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font></TextField>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -118,7 +124,10 @@
                               <Font name="Calibri Bold Italic" size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtTrabajo" prefHeight="25.0" prefWidth="207.0" styleClass="textoLogin2" />
+                        <TextField fx:id="txtTrabajo" prefHeight="25.0" prefWidth="207.0" styleClass="textoLogin2">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font></TextField>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="25.0" prefWidth="609.0" GridPane.rowIndex="1">
@@ -131,7 +140,10 @@
                               <Font name="Calibri Bold Italic" size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtApelldos" prefWidth="200.0" styleClass="textoLogin2" />
+                        <TextField fx:id="txtApelldos" prefWidth="200.0" styleClass="textoLogin2">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font></TextField>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
@@ -144,7 +156,10 @@
                               <Font name="Calibri Bold Italic" size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtTF" prefWidth="200.0" styleClass="textoLogin2" />
+                        <TextField fx:id="txtTF" prefWidth="200.0" styleClass="textoLogin2">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font></TextField>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -157,7 +172,10 @@
                               <Font name="Calibri Bold Italic" size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtNombre" prefWidth="200.0" styleClass="textoLogin2" />
+                        <TextField fx:id="txtNombre" prefWidth="200.0" styleClass="textoLogin2">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font></TextField>
                      </children>
                   </HBox>
                </children>

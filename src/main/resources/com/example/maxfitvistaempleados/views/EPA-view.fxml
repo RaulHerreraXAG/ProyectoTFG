@@ -131,7 +131,10 @@
                               <Font name="Calibri Bold Italic" size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtDinero" prefWidth="200.0" styleClass="textoLogin2" />
+                        <TextField fx:id="txtDinero" prefWidth="200.0" styleClass="textoLogin2">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font></TextField>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="25.0" prefWidth="609.0" GridPane.rowIndex="1">
@@ -170,7 +173,10 @@
                               <Font name="Calibri Bold Italic" size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtNombre" prefWidth="200.0" styleClass="textoLogin2" />
+                        <TextField fx:id="txtNombre" prefWidth="200.0" styleClass="textoLogin2">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font></TextField>
                      </children>
                   </HBox>
                </children>
@@ -186,6 +192,9 @@
                <VBox.margin>
                   <Insets left="155.0" right="200.0" />
                </VBox.margin>
+               <font>
+                  <Font name="Calibri Bold" size="15.0" />
+               </font>
             </TextArea>
          </children>
       </VBox>

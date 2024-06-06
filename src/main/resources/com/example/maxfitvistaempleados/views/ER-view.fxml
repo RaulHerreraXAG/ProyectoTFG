@@ -88,7 +88,10 @@
                         <Font name="Calibri Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtCuerpo" prefWidth="200.0" styleClass="textoLogin2" />
+                  <TextField fx:id="txtCuerpo" prefWidth="200.0" styleClass="textoLogin2">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font></TextField>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -101,7 +104,10 @@
                         <Font name="Calibri Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtNombre" prefHeight="25.0" prefWidth="206.0" styleClass="textoLogin2" />
+                  <TextField fx:id="txtNombre" prefHeight="25.0" prefWidth="206.0" styleClass="textoLogin2">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font></TextField>
                </children>
             </HBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -118,7 +124,10 @@
                   <TextArea fx:id="txtObservacion" maxHeight="107.0" maxWidth="471.0" minHeight="100.0" minWidth="400.0" prefHeight="107.0" prefWidth="471.0">
                      <VBox.margin>
                         <Insets bottom="40.0" />
-                     </VBox.margin></TextArea>
+                     </VBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font></TextArea>
                </children>
             </VBox>
             <HBox alignment="CENTER" prefHeight="218.0" prefWidth="610.0" GridPane.rowIndex="1">
@@ -131,7 +140,10 @@
                         <Font name="Calibri Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtCorreo" prefHeight="25.0" prefWidth="206.0" styleClass="textoLogin2" />
+                  <TextField fx:id="txtCorreo" prefHeight="25.0" prefWidth="206.0" styleClass="textoLogin2">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font></TextField>
                </children>
             </HBox>
          </children>

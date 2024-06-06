@@ -151,7 +151,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbMD4" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbMD4" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -164,7 +164,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbReceta4" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbReceta4" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
@@ -185,7 +185,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbMD1" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbMD1" prefHeight="28.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -198,7 +198,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbReceta1" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbReceta1" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
@@ -219,7 +219,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbMD2" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbMD2" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -232,7 +232,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbReceta2" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbReceta2" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
@@ -253,7 +253,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbMD3" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbMD3" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -266,7 +266,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbReceta3" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbReceta3" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
@@ -287,7 +287,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbMD5" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbMD5" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -300,7 +300,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbReceta5" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbReceta5" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
@@ -321,7 +321,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbMD6" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbMD6" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -334,7 +334,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbReceta6" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbReceta6" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
@@ -355,7 +355,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbMD7" prefHeight="15.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbMD7" prefHeight="15.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -368,7 +368,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbReceta7" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbReceta7" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
@@ -389,7 +389,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbMD8" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbMD8" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -402,7 +402,7 @@
                                     <Font name="Calibri Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbReceta8" prefHeight="25.0" prefWidth="159.0" />
+                              <ComboBox fx:id="cbReceta8" prefHeight="25.0" prefWidth="290.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />

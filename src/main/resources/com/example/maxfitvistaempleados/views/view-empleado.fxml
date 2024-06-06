@@ -131,7 +131,10 @@
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtFechaInicio" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css" />
+                  <TextField fx:id="txtFechaInicio" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font></TextField>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
@@ -144,7 +147,10 @@
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtApelldos" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css" />
+                  <TextField fx:id="txtApelldos" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font></TextField>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -157,7 +163,10 @@
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtPeso" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css" />
+                  <TextField fx:id="txtPeso" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font></TextField>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="25.0" prefWidth="609.0" GridPane.rowIndex="1">
@@ -170,7 +179,10 @@
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtNombre" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css" />
+                  <TextField fx:id="txtNombre" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font></TextField>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
@@ -183,7 +195,10 @@
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtAltura" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css" />
+                  <TextField fx:id="txtAltura" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font></TextField>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -196,7 +211,10 @@
                         <Font name="Calibri Bold" size="19.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtMatricula" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css" />
+                  <TextField fx:id="txtMatricula" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font></TextField>
                </children>
             </HBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
@@ -209,7 +227,10 @@
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="txtObservacion" maxHeight="107.0" maxWidth="471.0" minHeight="80.0" minWidth="400.0" prefHeight="80.0" prefWidth="471.0" />
+                  <TextArea fx:id="txtObservacion" maxHeight="107.0" maxWidth="471.0" minHeight="80.0" minWidth="400.0" prefHeight="80.0" prefWidth="471.0">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font></TextArea>
                </children>
             </VBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="610.0" GridPane.rowIndex="3">
@@ -222,7 +243,10 @@
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtEdad" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css" />
+                  <TextField fx:id="txtEdad" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font></TextField>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -235,7 +259,10 @@
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtFechaFin" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css" />
+                  <TextField fx:id="txtFechaFin" prefWidth="200.0" styleClass="textoLogin2" stylesheets="@../../../../style.css">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font></TextField>
                </children>
             </HBox>
          </children>
