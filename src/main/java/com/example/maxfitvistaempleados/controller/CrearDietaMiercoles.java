@@ -146,6 +146,16 @@ public class CrearDietaMiercoles implements Initializable {
         Main.changeScene("Rutina-view.fxml","Rutina");
 
     }
+    @javafx.fxml.FXML
+    public void Cliente(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("view-admin.fxml","Cliente");
+
+    }
+
+    @javafx.fxml.FXML
+    public void Pago(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("pagoAdmin-view.fxml","Pago");
+    }
 
     @javafx.fxml.FXML
     public void FD(ActionEvent actionEvent) throws IOException {

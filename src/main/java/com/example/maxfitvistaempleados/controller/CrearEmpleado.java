@@ -62,6 +62,7 @@ public class CrearEmpleado implements Initializable {
         Main.changeScene("ingresoAdmin-view.fxml","Ingresos");
     }
 
+
     @javafx.fxml.FXML
     public void Pagos(ActionEvent actionEvent) throws IOException {
         Main.changeScene("pagoAdmin-view.fxml","Pagos");

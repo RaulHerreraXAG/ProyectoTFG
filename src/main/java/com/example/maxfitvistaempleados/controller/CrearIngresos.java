@@ -55,6 +55,16 @@ public class CrearIngresos implements Initializable {
     public void CerrarSesion(ActionEvent actionEvent) throws IOException {
         Main.login("Inicio Sesión");
     }
+    @javafx.fxml.FXML
+    public void Cliente(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("view-admin.fxml","Cliente");
+
+    }
+
+    @javafx.fxml.FXML
+    public void Pago(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("pagoAdmin-view.fxml","Pago");
+    }
 
     @javafx.fxml.FXML
     public void Ingresos(ActionEvent actionEvent) throws IOException {

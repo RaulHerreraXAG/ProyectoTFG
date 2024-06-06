@@ -59,6 +59,16 @@ public class CrearPago implements Initializable {
     public void Ingresos(ActionEvent actionEvent) throws IOException {
         Main.changeScene("ingreso-view.fxml","Ingresos");
     }
+    @javafx.fxml.FXML
+    public void Cliente(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("view-admin.fxml","Cliente");
+
+    }
+
+    @javafx.fxml.FXML
+    public void Pago(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("pagoAdmin-view.fxml","Pago");
+    }
 
     @javafx.fxml.FXML
     public void Pagos(ActionEvent actionEvent) throws IOException {

@@ -445,5 +445,14 @@ public class CrearDieta implements Initializable {
     }
 
 
+    @javafx.fxml.FXML
+    public void Cliente(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("view-admin.fxml","Cliente");
 
+    }
+
+    @javafx.fxml.FXML
+    public void Pago(ActionEvent actionEvent) throws IOException {
+        Main.changeScene("pagoAdmin-view.fxml","Pago");
+    }
 }

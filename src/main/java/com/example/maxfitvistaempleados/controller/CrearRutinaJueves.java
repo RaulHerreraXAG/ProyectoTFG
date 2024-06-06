@@ -120,6 +120,7 @@ public class CrearRutinaJueves implements Initializable {
         Main.changeScene("ingreso-view.fxml","Ingresos");
     }
 
+
     @javafx.fxml.FXML
     public void Pago(ActionEvent actionEvent) throws IOException {
         Main.changeScene("pago-view.fxml","Pagos");

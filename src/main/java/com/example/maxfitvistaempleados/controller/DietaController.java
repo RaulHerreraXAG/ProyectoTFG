@@ -165,6 +165,7 @@ public class DietaController implements Initializable {
         Main.login("Inicio Sesión");
     }
 
+
     @javafx.fxml.FXML
     public void Ingresos(ActionEvent actionEvent) throws IOException {
         Main.changeScene("ingreso-view.fxml","Ingresos");
